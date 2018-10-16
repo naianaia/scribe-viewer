@@ -1,5 +1,6 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
+import Parser from 'html-react-parser';
 import '../App.css';
 import { connect } from 'react-redux';
 import $ from 'jquery'; 
@@ -9,10 +10,17 @@ import * as actions from '../redux/actions';
 class ArticleView extends Component {
     constructor () {
         super();
+
+        
     }
 
     componentWillMount() {
         this.props.dataFetch("San Francisco");
+    }
+
+    showCard(spanId) {
+        console.log("ShowCard");
+        console.log(spanId);
     }
 
     render () {
@@ -27,11 +35,33 @@ class ArticleView extends Component {
                         {this.props.url}
                     </p>
                 </div>
-                <div dangerouslySetInnerHTML={{ __html: this.props.html }} />
+                <div>
+                {Parser(this.props.html, {
+                    replace: (domNode) => {
+                        if (domNode.name === 'span') {
+                            if(domNode.attribs.class === 'text-annotation') {
+                                console.log(domNode);
+                                var spanClass = domNode.attribs.class;
+                                var spanId = domNode.attribs.id;
+                                var spanContent = domNode.children[0].data;
+                                console.log(spanContent);
+
+                                return <div>
+                                        <span class={spanClass} id={spanId} onClick={this.showCard.bind(this, spanId) }>{spanContent}</span>
+                                    </div>
+                                
+                            }
+                        }
+                    }
+                })}
+                </div>
+                
             </div>
         )
     }
 }
+
+//<div dangerouslySetInnerHTML={{ __html: this.props.html }} />
 
 const mapStateToProps = state => {
     var html = '';
