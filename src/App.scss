@@ -5,6 +5,8 @@
 
 html, body {
     font-family: 'Roboto', sans-serif;
+    background: $color-bg;
+    color: $color-blk;
 }
 
 .page {
@@ -19,10 +21,7 @@ figure {
     margin: 0;
 }
 
-p {
-    margin: 0;
-    text-align: left;
-}
+
 
 @media screen and (max-width: 480px) {
     .page {

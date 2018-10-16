@@ -19,11 +19,11 @@ class ArticleView extends Component {
         return (
             <div>
                 <div class='doc_meta'>
-                    <p class='text_meta_date'>
+                    <p class='text_meta text_meta_date'>
                         {this.props.date}
                     </p>
-                    <h1>{this.props.title}</h1>
-                    <p class='text_meta'>
+                    <h1 class='text_meta text_meta_title'>{this.props.title}</h1>
+                    <p class='text_meta text_meta_url'>
                         {this.props.url}
                     </p>
                 </div>
