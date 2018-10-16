@@ -1,0 +1,22 @@
+$txt-alignment: left;
+
+$header-size: 20px;
+$header-line: 125%;
+$header-margin-top: 0;
+$header-margin-bottom: 8px;
+
+h1, h2 {
+    text-align: $txt-alignment;
+}
+
+h2 {
+    font-size: $header-size;
+    line-height: $header-line;
+    margin-block-end: 0;
+    margin-block-start: 0;
+    margin-top: $header-margin-top;
+    margin-bottom: $header-margin-bottom;
+}
+
+@media screen and (max-width: 480px) {
+}

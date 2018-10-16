@@ -1,0 +1,23 @@
+@font-face {
+    font-family: "San Francisco";
+    font-weight: 400;
+    src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
+  }
+
+$color-bg: #f6f6f6;
+$color-txt: #444444;
+$color-txt-light: #d1d1d1;
+$color-txt-emp: #1482AA;
+$color-txt-emp-light: rgba(20,130,170,.3);
+
+$txt-wt: 400;
+$txt-wt-emp: 600;
+
+$txt-size-reg: 1rem;
+$txt-size-head: 2rem;
+$txt-size-head-m: 1rem;
+$txt-size-hero: 7rem;
+$txt-height-reg: 1.5rem;
+$txt-height-head: 2rem;
+$txt-height-head-m: 2rem;
+$txt-height-hero: 7rem;

@@ -1,0 +1,31 @@
+
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import "styles/basevars";
+@import "styles/text";
+
+html, body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.page {
+    padding: 32px;
+}
+
+img {
+    width: 100%;
+}
+
+figure {
+    margin: 0;
+}
+
+p {
+    margin: 0;
+    text-align: left;
+}
+
+@media screen and (max-width: 480px) {
+    .page {
+        padding: 0;
+    }
+}
