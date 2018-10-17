@@ -1,0 +1,34 @@
+
+.annotationCard {
+    display: flex;
+    flex-direction: row;
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+
+.annotationProfile {
+    width: 16px;
+    min-width: 16px;
+    margin-right: 8px;
+}
+
+.annotationContent {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.annotationAuthor {
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.annotationText {
+    margin-bottom: 8px;
+
+}
+
+.annotationTime {
+    color: $color-grey;
+    font-style: italic;
+}
