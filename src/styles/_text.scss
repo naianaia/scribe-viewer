@@ -27,7 +27,7 @@ h1 {
     margin-top: $header-margin-top;
     margin-left: $mobile-margin-h;
     margin-right: $mobile-margin-h;
-    font-weight: 600;
+    font-weight: 700;
 
     font-family: 'Roboto Condensed';
 }
@@ -137,6 +137,12 @@ code {
 
 .text-annotation {
     background-color: $color-highlight;
+}
+
+.text-download {
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 16px;
 }
 
 .text-highlight-open {

@@ -5,6 +5,8 @@ import '../App.css';
 import { connect } from 'react-redux';
 import $ from 'jquery'; 
 import * as actions from '../redux/actions';
+import DocumentBar from './DocumentBar';
+import ArticleMeta from './ArticleMeta';
 
 
 class ArticleView extends Component {
@@ -66,7 +68,7 @@ class ArticleView extends Component {
     showCover() {
         console.log(this.props.image);
         if (_.includes(this.props.html, "img")) {
-            return null;
+            return <img src={this.props.image} class='imageCover'/>;
         }
         else {
             return <img src={this.props.image} class='imageCover'/>;
@@ -76,30 +78,15 @@ class ArticleView extends Component {
     render () {
         return (
             <div>
-                <div class='doc_bar'>
-                    <svg viewBox="0 0 32 32" width="32px" height="32px">
-                        <path class="st0" d="M23.9,28.5c1.7,0,3.2-0.6,4.3-1.9c1.5-1.7,2.1-4.3,1.7-7.3c-0.2-1.5-0.6-2.4-1.3-3c-0.7-0.6-1.5-0.9-2.5-0.9H26
-                            h-6.2c-0.5,0-0.9-0.1-1.2-0.4c-0.1-0.1-0.3-0.3-0.4-0.6H28l0,0c0-0.3,0.3-5.8-2.2-8.4c-0.9-0.9-2-1.4-3.3-1.5v0L8,4.5
-                            c-1.7,0-3.2,0.6-4.3,1.9C2.3,8,1.6,10.7,2,13.6c0.2,1.5,0.6,2.4,1.3,3c0.7,0.6,1.5,0.9,2.5,0.9h0.1h6.2c0.5,0,0.9,0.1,1.2,0.4
-                            c0.1,0.1,0.3,0.3,0.4,0.6H3.9l0,0c0,0.3-0.3,5.8,2.2,8.4c0.9,0.9,2,1.4,3.3,1.5L23.9,28.5z M15.9,12.5H14c0-1.5-0.4-4.1-1.8-6h5.4
-                            H22c1,0,1.7,0.3,2.3,1c1.2,1.3,1.6,3.6,1.7,5h-8.1H15.9z M5.9,15.5H5.8c-0.5,0-0.9-0.1-1.2-0.4c-0.2-0.2-0.5-0.5-0.6-1.7
-                            C3.7,11,4.2,8.9,5.2,7.7C5.9,6.9,6.9,6.5,8,6.5c1,0,1.8,0.3,2.4,1c1.8,1.9,1.6,5.9,1.6,6l-0.1,1.1h4.2c0.1,0.4,0.2,0.7,0.3,1H16
-                            h-0.1h-3.8H5.9z M9.9,26.5c-1,0-1.7-0.3-2.3-1c-1.2-1.3-1.6-3.6-1.7-5H14h2h1.9c0,1.5,0.4,4.1,1.8,6h-5.4H9.9z M26.7,25.3
-                            c-0.7,0.8-1.6,1.2-2.8,1.2c-1,0-1.8-0.3-2.4-1c-1.8-1.9-1.6-5.9-1.6-6l0.1-1.1h-4.2c-0.1-0.4-0.2-0.7-0.3-1h0.5H16h3.8H26h0.1
-                            c0.5,0,0.9,0.1,1.2,0.4c0.2,0.2,0.5,0.5,0.6,1.7C28.2,22,27.7,24.1,26.7,25.3z"/>
-                    </svg>
-                </div>
+                <DocumentBar />
                 <div class='doc_page'>
-                    <div class='doc_meta'>
-                        {this.showCover()}
-                        <p class='text_meta text_meta_date'>
-                            {this.props.date}
-                        </p>
-                        <h1 class='text_meta text_meta_title'>{this.props.title}</h1>
-                        <p class='text_meta text_meta_url'>
-                            {this.props.url}
-                        </p>
-                    </div>
+                    <ArticleMeta
+                        date={this.props.date} 
+                        url={this.props.url} 
+                        title={this.props.title} 
+                        image={this.props.image} 
+                        html={this.props.html} 
+                    />
                     <div>
                         {Parser(this.props.html, {
                             replace: (domNode) => {

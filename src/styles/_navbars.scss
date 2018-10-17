@@ -3,7 +3,7 @@
 }
 
 .doc_page {
-    margin-top: 56px;
+    margin-top: 48px;
 }
 
 .doc_bar {
@@ -14,8 +14,34 @@
     top: 0;
 }
 
+.doc_bar_icons {
+    height: 48px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.doc_bar_download {
+    display: flex;
+    flex-direction: row;
+    height: 16px;
+    border-radius: 12px;
+    border-style: solid;
+    border-color: $color-blk;
+    border-width: 1px;
+    justify-content: flex-start;
+    margin-left: 8px;
+}
+
+.doc_bar_left {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
 svg {
     fill: $color-blk;
-    margin-left: 8px;
-    margin-top: 8px;
 }

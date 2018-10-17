@@ -18,7 +18,7 @@ h1 {
   margin-top: 0;
   margin-left: 8px;
   margin-right: 8px;
-  font-weight: 600;
+  font-weight: 700;
   font-family: "Roboto Condensed";
 }
 
@@ -125,6 +125,12 @@ code {
   background-color: rgba(255, 246, 36, 0.33);
 }
 
+.text-download {
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 16px;
+}
+
 .text-highlight-open {
   float: left;
 }
@@ -176,7 +182,7 @@ code {
 }
 
 .doc_page {
-  margin-top: 56px;
+  margin-top: 48px;
 }
 
 .doc_bar {
@@ -187,10 +193,36 @@ code {
   top: 0;
 }
 
+.doc_bar_icons {
+  height: 48px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.doc_bar_download {
+  display: flex;
+  flex-direction: row;
+  height: 16px;
+  border-radius: 12px;
+  border-style: solid;
+  border-color: #373B40;
+  border-width: 1px;
+  justify-content: flex-start;
+  margin-left: 8px;
+}
+
+.doc_bar_left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 svg {
   fill: #373B40;
-  margin-left: 8px;
-  margin-top: 8px;
 }
 
 html, body {
