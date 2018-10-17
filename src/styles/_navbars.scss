@@ -1,0 +1,21 @@
+
+.doc_holder {
+}
+
+.doc_page {
+    margin-top: 56px;
+}
+
+.doc_bar {
+    width: 100%;
+    height: 48px;
+    background-color: $color-white-trans;
+    position: fixed;
+    top: 0;
+}
+
+svg {
+    fill: $color-blk;
+    margin-left: 8px;
+    margin-top: 8px;
+}

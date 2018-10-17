@@ -4,8 +4,8 @@ $mobile-margin-h: 8px;
 
 $meta-margin-bottom: 32px;
 
-$header-size: 24px;
-$header-line: 30px;
+$header-size: 28px;
+$header-line: 40px;
 $header-margin-top: 0;
 $header-margin-bottom: 8px;
 
@@ -28,6 +28,8 @@ h1 {
     margin-left: $mobile-margin-h;
     margin-right: $mobile-margin-h;
     font-weight: bold;
+
+    font-family: 'Roboto Condensed';
 }
 
 h2 {
@@ -61,6 +63,8 @@ p {
     margin-left: $mobile-margin-h;
     margin-right: $mobile-margin-h;
     margin-bottom: $body-margin-bottom;
+
+    font-family: 'Overpass';
 }
 
 ol {
@@ -95,8 +99,6 @@ a {
     text-align: left;
     font-size: $body-size;
     line-height: $body-line;
-    margin-left: $mobile-margin-h;
-    margin-right: $mobile-margin-h;
     margin-bottom: $body-margin-bottom;
     
 }
