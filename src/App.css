@@ -6,7 +6,7 @@
   font-weight: 400;
   src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
 }
-h1, h2, h3 {
+h1, h2, h3, h4 {
   text-align: left;
 }
 
@@ -18,7 +18,7 @@ h1 {
   margin-top: 0;
   margin-left: 8px;
   margin-right: 8px;
-  font-weight: bold;
+  font-weight: 600;
   font-family: "Roboto Condensed";
 }
 
@@ -33,7 +33,7 @@ h2 {
   margin-right: 8px;
 }
 
-h3 {
+h3, h4, h5, h6 {
   font-size: 14px;
   line-height: 21px;
   margin-block-end: 0;
@@ -52,7 +52,6 @@ p {
   margin-left: 8px;
   margin-right: 8px;
   margin-bottom: 14px;
-  font-family: "Overpass";
 }
 
 ol {
@@ -71,6 +70,8 @@ ul {
   line-height: 21px;
   margin-left: 8px;
   margin-right: 8px;
+  padding-left: 0;
+  padding-inline-start: 24px;
 }
 
 li {
@@ -78,14 +79,28 @@ li {
 }
 
 a {
-  color: #9BA5B1;
+  color: #36B9E3;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 600;
   margin: 0;
   text-align: left;
   font-size: 14px;
   line-height: 21px;
   margin-bottom: 14px;
+}
+
+pre {
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+code {
+  color: #9BA5B1;
+  margin: 8px;
+  display: inline-block;
+  max-width: calc(100% - 16px);
+  font-size: 14px;
+  overflow-x: scroll;
 }
 
 .text_meta_date {
@@ -179,7 +194,7 @@ svg {
 }
 
 html, body {
-  font-family: "Roboto", sans-serif;
+  font-family: "Overpass", "Roboto", sans-serif;
   background: #f8f8f8;
   color: #373B40;
 }
@@ -188,8 +203,25 @@ html, body {
   padding: 32px;
 }
 
+figure {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  align-content: center;
+}
+
+picture {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  max-height: 60vh;
+}
+
 img {
   width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  max-height: 60vh;
 }
 
 p > img {

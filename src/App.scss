@@ -8,7 +8,7 @@
 @import "styles/navbars";
 
 html, body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Overpass', 'Roboto', sans-serif;
     background: $color-bg;
     color: $color-blk;
 }
@@ -17,8 +17,25 @@ html, body {
     padding: 32px;
 }
 
+figure {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    align-content: center;
+}
+
+picture {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    max-height: 60vh;
+}
+
 img {
     width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    max-height: 60vh;
 }
 
 p > img {
