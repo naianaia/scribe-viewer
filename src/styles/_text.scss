@@ -4,18 +4,18 @@ $mobile-margin-h: 8px;
 
 $meta-margin-bottom: 32px;
 
-$header-size: 20px;
-$header-line: 125%;
+$header-size: 24px;
+$header-line: 30px;
 $header-margin-top: 0;
 $header-margin-bottom: 8px;
 
-$body-size: 12px;
-$body-line: 18px;
-$body-margin-bottom: 12px;
+$body-size: 14px;
+$body-line: 21px;
+$body-margin-bottom: 14px;
 
 
 
-h1, h2 {
+h1, h2, h3 {
     text-align: $txt-alignment;
 }
 
@@ -40,6 +40,18 @@ h2 {
     margin-left: $mobile-margin-h;
     margin-right: $mobile-margin-h;
 }
+
+h3 {
+    font-size: $body-size;
+    line-height: $body-line;
+    margin-block-end: 0;
+    margin-block-start: 0;
+    margin-top: $header-margin-top;
+    margin-bottom: $header-margin-bottom;
+    margin-left: $mobile-margin-h;
+    margin-right: $mobile-margin-h;
+}
+
 
 p {
     margin: 0;
@@ -77,6 +89,15 @@ a {
     color: $color-grey;
     text-decoration: none;
     font-weight: bold;
+
+
+    margin: 0;
+    text-align: left;
+    font-size: $body-size;
+    line-height: $body-line;
+    margin-left: $mobile-margin-h;
+    margin-right: $mobile-margin-h;
+    margin-bottom: $body-margin-bottom;
     
 }
 

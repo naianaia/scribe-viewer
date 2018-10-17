@@ -131,15 +131,17 @@ const mapStateToProps = state => {
     var date = '';
 
     const pageData = _.values(state.pageData);
+    console.log(pageData);
     const data = pageData[0];
 
+    var artnum = 1;
     if (data) {
         const page = _.values(data.items);
-        html = page[0].article.content;
-        title = page[0].article.title;
-        url = (new URL(page[0].url)).hostname;
-        image = page[0].article.image;
-        author = page[0].article.author;
+        html = page[artnum].article.content;
+        title = page[artnum].article.title;
+        url = (new URL(page[artnum].url)).hostname;
+        image = page[artnum].article.image;
+        author = page[artnum].article.author;
 
         var res = new Date();
         date = res.toString().substring(4, 15);
