@@ -129,6 +129,7 @@ code {
   font-size: 12px;
   font-weight: bold;
   line-height: 16px;
+  color: #36B9E3;
 }
 
 .text-highlight-open {
@@ -182,7 +183,7 @@ code {
 }
 
 .doc_page {
-  margin-top: 48px;
+  margin-top: 56px;
 }
 
 .doc_bar {
@@ -209,7 +210,7 @@ code {
   height: 16px;
   border-radius: 12px;
   border-style: solid;
-  border-color: #373B40;
+  border-color: #36B9E3;
   border-width: 1px;
   justify-content: flex-start;
   margin-left: 8px;
@@ -223,6 +224,34 @@ code {
 
 svg {
   fill: #373B40;
+}
+
+.user_card_holder {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 24px;
+  margin-left: 8px;
+}
+
+.user_profile {
+  width: 36px;
+  height: 36px;
+  border-radius: 18px;
+}
+
+.user_profile_pic {
+  width: 36px;
+  height: 36px;
+  border-radius: 18px;
+}
+
+.user_card_text_top {
+  margin-bottom: 0px;
+}
+
+.user_card_text_bottom {
+  margin-bottom: 0px;
 }
 
 html, body {

@@ -3,23 +3,26 @@ import React, { Component } from 'react';
 import Parser from 'html-react-parser';
 import '../App.css';
 import { connect } from 'react-redux';
-import $ from 'jquery'; 
 import * as actions from '../redux/actions';
 import DocumentBar from './DocumentBar';
 import ArticleMeta from './ArticleMeta';
+import UserCard from './UserCard';
 
 
 class ArticleView extends Component {
     constructor () {
         super();
         this.state = {
-            annotations: {}
+            annotations: {},
+            annotater: "",
+            annotater_profile: ""
         }
     }
 
     //fetch some data from Firebase
     componentWillMount() {
         this.props.dataFetch();
+        this.setState({ ...this.state, annotater: "Ben Mann", annotater_profile: "https://avatars2.githubusercontent.com/u/1021104?s=400&v=4"});
     }
 
     //toggles state boolean controlling whether to show an annotation card
@@ -80,6 +83,7 @@ class ArticleView extends Component {
             <div>
                 <DocumentBar />
                 <div class='doc_page'>
+                    <UserCard profile={this.state.annotater_profile} name={this.state.annotater} />
                     <ArticleMeta
                         date={this.props.date} 
                         url={this.props.url} 

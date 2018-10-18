@@ -1,11 +1,6 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
-import Parser from 'html-react-parser';
 import '../App.css';
-import { connect } from 'react-redux';
-import $ from 'jquery'; 
-import * as actions from '../redux/actions';
-import DocumentBar from './DocumentBar';
 
 
 class ArticleMeta extends Component {
