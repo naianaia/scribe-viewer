@@ -15,7 +15,7 @@ class ArticleMeta extends Component {
 
     //if no images, show cover
     showCover() {
-        console.log(this.props.image);
+        //console.log(this.props.image);
         if (_.includes(this.props.html, "img")) {
             return <img src={this.props.image} class='imageCover'/>;
         }

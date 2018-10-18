@@ -9,6 +9,11 @@ $header-line: 40px;
 $header-margin-top: 0;
 $header-margin-bottom: 8px;
 
+$subheader-size: 18px;
+$subheader-line: 24px;
+$subheader-margin-top: 0px;
+$subheader-margin-bottom: 14px;
+
 $body-size: 14px;
 $body-line: 21px;
 $body-margin-bottom: 14px;
@@ -33,23 +38,23 @@ h1 {
 }
 
 h2 {
-    font-size: $body-size;
-    line-height: $body-line;
+    font-size: $subheader-size;
+    line-height: $subheader-line;
     margin-block-end: 0;
     margin-block-start: 0;
-    margin-top: $header-margin-top;
-    margin-bottom: $header-margin-bottom;
+    margin-top: $subheader-margin-top;
+    margin-bottom: $subheader-margin-bottom;
     margin-left: $mobile-margin-h;
     margin-right: $mobile-margin-h;
 }
 
 h3, h4, h5, h6 {
-    font-size: $body-size;
-    line-height: $body-line;
+    font-size: $subheader-size;
+    line-height: $subheader-line;
     margin-block-end: 0;
     margin-block-start: 0;
-    margin-top: $header-margin-top;
-    margin-bottom: $header-margin-bottom;
+    margin-top: $subheader-margin-top;
+    margin-bottom: $subheader-margin-bottom;
     margin-left: $mobile-margin-h;
     margin-right: $mobile-margin-h;
 }

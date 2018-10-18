@@ -8,6 +8,7 @@ import * as actions from '../redux/actions';
 import DocumentBar from './DocumentBar';
 import ArticleMeta from './ArticleMeta';
 import UserCard from './UserCard';
+import AnnotationCard from './AnnotationCard';
 import { addUrlProps, UrlQueryParamTypes } from 'react-url-query';
 
 const urlPropsQueryConfig = {
@@ -68,8 +69,10 @@ class ArticleView extends Component {
         console.log(this.state.annotations[spanId]);
     }
 
+    //no longer needed
     //creates a dummy card and returns it
     createCard(spanId) {
+        console.log(spanId);
         var profile = "https://avatars2.githubusercontent.com/u/1021104?s=400&v=4";
         var name = "Ben Mann";
         var content = "However, as already mentioned, you really should avoid mutating the DOM outside React. The whole point is to describe the UI once based on the state and the props of the component. Then change the state or props to rerender the component.";
@@ -137,9 +140,12 @@ class ArticleView extends Component {
                                             return (
                                                 <>
                                                     <span class={spanClass} id={spanId} onClick={this.toggleCard.bind(this, spanId) }>{spanContent}</span>
-                                                    <div class="text-highlight-open">
-                                                        {this.createCard(spanId)}
-                                                    </div>
+                                                    <AnnotationCard 
+                                                        profile="https://avatars2.githubusercontent.com/u/1021104?s=400&v=4"
+                                                        name="anonymous"
+                                                        time="1 hour ago"
+                                                        spanId={spanId}
+                                                    />
                                                 </>
                                             )
                                         }
