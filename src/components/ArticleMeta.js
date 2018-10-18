@@ -33,7 +33,7 @@ class ArticleMeta extends Component {
                 </p>
                 <h1 class='text_meta text_meta_title'>{this.props.title}</h1>
                 <p class='text_meta text_meta_url'>
-                    {this.props.url}
+                    {this.props.author} &sdot; {this.props.url}
                 </p>
             </div>
         )

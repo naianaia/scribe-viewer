@@ -7,10 +7,12 @@
     "html-react-parser": "^0.4.7",
     "jquery": "^3.3.1",
     "ms": "^2.1.1",
+    "prop-types": "^15.6.2",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-redux": "^5.0.7",
     "react-scripts": "2.0.5",
+    "react-url-query": "^1.4.0",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0"
   },

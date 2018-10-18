@@ -24,7 +24,7 @@ class UserCard extends Component {
                 </div>
                 <div class='user_card_text'>
                     <p class='user_card_text_top'><span class='text-annotation'>Annotated</span> by</p>
-                    <p class='user_card_text_bottom'><b>Ben Mann</b></p>
+                    <p class='user_card_text_bottom'><b>anonymous</b></p>
                 </div>
 
                 <div class='doc_bar_download'>

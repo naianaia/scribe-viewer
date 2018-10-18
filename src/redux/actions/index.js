@@ -13,3 +13,10 @@ export const dataFetch = (city) => {
             });
     };
 };
+
+export const setQuery = (uid, aid) => {
+    return {
+        type: 'set_query',
+        payload: { uid: uid, aid: aid }
+    };
+}

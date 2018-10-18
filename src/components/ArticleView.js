@@ -1,5 +1,6 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Parser from 'html-react-parser';
 import '../App.css';
 import { connect } from 'react-redux';
@@ -7,9 +8,32 @@ import * as actions from '../redux/actions';
 import DocumentBar from './DocumentBar';
 import ArticleMeta from './ArticleMeta';
 import UserCard from './UserCard';
+import { addUrlProps, UrlQueryParamTypes } from 'react-url-query';
 
+const urlPropsQueryConfig = {
+    userId: { type: UrlQueryParamTypes.string, queryParam: 'au' },
+    authorId: { type: UrlQueryParamTypes.string, queryParam: 'ar' },
+};
 
 class ArticleView extends Component {
+
+    static propTypes = {
+        // URL props are automatically decoded and passed in based on the config
+        userId: PropTypes.string,
+        authorId: PropTypes.string,
+    
+        // change handlers are automatically generated when given a config.
+        // By default they update that single query parameter and maintain existing
+        // values in the other parameters.
+        onChangeUserId: PropTypes.func,
+        onChangeAuthorId: PropTypes.func,
+    }
+
+    static defaultProps = {
+        userId: '',
+        authorId: '',
+    }
+
     constructor () {
         super();
         this.state = {
@@ -22,6 +46,10 @@ class ArticleView extends Component {
     //fetch some data from Firebase
     componentWillMount() {
         this.props.dataFetch();
+        const { userId, authorId, onChangeUserId, onChangeAuthorId } = this.props;
+        this.props.setQuery(userId, authorId);
+        console.log(userId);
+        console.log(authorId);
         this.setState({ ...this.state, annotater: "Ben Mann", annotater_profile: "https://avatars2.githubusercontent.com/u/1021104?s=400&v=4"});
     }
 
@@ -79,6 +107,7 @@ class ArticleView extends Component {
     }
 
     render () {
+
         return (
             <div>
                 <DocumentBar />
@@ -90,6 +119,7 @@ class ArticleView extends Component {
                         title={this.props.title} 
                         image={this.props.image} 
                         html={this.props.html} 
+                        author={this.props.author}
                     />
                     <div>
                         {Parser(this.props.html, {
@@ -136,26 +166,34 @@ const mapStateToProps = state => {
     var url = '';
     var date = '';
 
+
+    //const userData = state.pageData[state.queryData.uid];
+
     const pageData = _.values(state.pageData);
     console.log(pageData);
     const data = pageData[1];
 
-    var artnum = 2;
+    var artnum = 3;
     if (data) {
-        const page = _.values(data.items);
-        html = page[artnum].article.content;
-        title = page[artnum].article.title;
-        url = (new URL(page[artnum].url)).hostname;
-        image = page[artnum].article.image;
-        author = page[artnum].article.author;
+        const { [state.queryData.uid]: userData } = state.pageData;
+        console.log(userData);
+        const { [state.queryData.aid]: articleData } = userData.items;
+        console.log(articleData);
+        
+        html = articleData.article.content;
+        title = articleData.article.title;
+        image = articleData.article.image;
+        url = (new URL(articleData.url)).hostname;
+        author = articleData.article.byline;
+
 
         var res = new Date();
         date = res.toString().substring(4, 15);
 
     }
 
-    console.log(html);
+    //console.log(html);
     return { html, title, url, date, image, author }
 };
 
-export default connect(mapStateToProps, actions)(ArticleView);
+export default addUrlProps({ urlPropsQueryConfig })(connect(mapStateToProps, actions)(ArticleView));
