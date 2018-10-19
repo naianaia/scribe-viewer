@@ -15,7 +15,7 @@ html, body {
 }
 
 .page {
-    padding: 32px;
+    padding: 0;
 }
 
 figure {
@@ -51,17 +51,26 @@ p > img {
 }
 
 figure {
-    margin: 0;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 section {
     margin-bottom: 24px;
 }
 
-
+.App {
+    width: 45rem;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 @media screen and (max-width: 480px) {
     .page {
         padding: 0;
+    }
+
+    .App {
+        width: 100%;
     }
 }

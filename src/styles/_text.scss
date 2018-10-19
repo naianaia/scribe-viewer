@@ -1,6 +1,7 @@
 $txt-alignment: left;
 
 $mobile-margin-h: 8px;
+$margin-h: 32px;
 
 $meta-margin-bottom: 32px;
 
@@ -19,62 +20,68 @@ $body-line: 21px;
 $body-margin-bottom: 14px;
 
 
+$d-header-size: 42px;
+$d-header-line: 56px;
+$d-header-margin-top: 0;
+$d-header-margin-bottom: 12px;
+
+$d-subheader-size: 24px;
+$d-subheader-line: 36px;
+$d-subheader-margin-top: 0px;
+$d-subheader-margin-bottom: 24px;
+
+$d-body-size: 18px;
+$d-body-line: 30px;
+$d-body-margin-bottom: 27px;
+
+
 
 h1, h2, h3, h4 {
     text-align: $txt-alignment;
 }
 
+p, ol, ul, a {
+    font-size: $d-body-size;
+    line-height: $d-body-line;
+}
+
 h1 {
-    font-size: $header-size;
-    line-height: $header-line;
+    font-size: $d-header-size;
+    line-height: $d-header-line;
     margin-block-end: 0;
     margin-block-start: 0;
     margin-top: $header-margin-top;
-    margin-left: $mobile-margin-h;
-    margin-right: $mobile-margin-h;
     font-weight: 700;
+
+    margin-left: $margin-h;
+    margin-right: $margin-h;
 
     font-family: 'Roboto Condensed';
 }
 
-h2 {
-    font-size: $subheader-size;
-    line-height: $subheader-line;
+h2, h3, h4, h5, h6 {
+    font-size: $d-subheader-size;
+    line-height: $d-subheader-line;
     margin-block-end: 0;
     margin-block-start: 0;
-    margin-top: $subheader-margin-top;
-    margin-bottom: $subheader-margin-bottom;
-    margin-left: $mobile-margin-h;
-    margin-right: $mobile-margin-h;
-}
-
-h3, h4, h5, h6 {
-    font-size: $subheader-size;
-    line-height: $subheader-line;
-    margin-block-end: 0;
-    margin-block-start: 0;
-    margin-top: $subheader-margin-top;
-    margin-bottom: $subheader-margin-bottom;
-    margin-left: $mobile-margin-h;
-    margin-right: $mobile-margin-h;
+    margin-top: $d-subheader-margin-top;
+    margin-bottom: $d-subheader-margin-bottom;
+    margin-left: $margin-h;
+    margin-right: $margin-h;
 }
 
 
 p {
     margin: 0;
     text-align: left;
-    font-size: $body-size;
-    line-height: $body-line;
-    margin-left: $mobile-margin-h;
-    margin-right: $mobile-margin-h;
-    margin-bottom: $body-margin-bottom;
+    margin-left: $margin-h;
+    margin-right: $margin-h;
+    margin-bottom: $d-body-margin-bottom;
 }
 
 ol {
     margin: 0;
     text-align: left;
-    font-size: $body-size;
-    line-height: $body-line;
     margin-left: $mobile-margin-h;
     margin-right: $mobile-margin-h;
 }
@@ -82,8 +89,6 @@ ol {
 ul {
     margin: 0;
     text-align: left;
-    font-size: $body-size;
-    line-height: $body-line;
     margin-left: $mobile-margin-h;
     margin-right: $mobile-margin-h;
     padding-left: 0;
@@ -91,26 +96,22 @@ ul {
 }
 
 li {
-    margin-bottom: $body-margin-bottom;
+    margin-bottom: $d-body-margin-bottom;
 }
 
 a {
     color: $color-blu;
     text-decoration: none;
     font-weight: 600;
-
-
     margin: 0;
     text-align: left;
-    font-size: $body-size;
-    line-height: $body-line;
-    margin-bottom: $body-margin-bottom;
+    margin-bottom: $d-body-margin-bottom;
     
 }
 
 pre {
-    margin-left: $mobile-margin-h;
-    margin-right: $mobile-margin-h;
+    margin-left: $margin-h;
+    margin-right: $margin-h;
 }
 
 code {
@@ -120,6 +121,19 @@ code {
     max-width: calc(100% - 16px);
     font-size: $body-size;
     overflow-x: scroll;
+}
+
+figcaption {
+    text-align: center;
+    margin-left: $margin-h;
+    margin-right: $margin-h;
+    font-style: italic;
+    color: $color-grey;
+    font-weight: 300;
+}
+
+figure {
+    margin-bottom: $d-body-margin-bottom;
 }
 
 .text_meta_date {
@@ -147,13 +161,58 @@ code {
 .text-download {
     font-size: 12px;
     font-weight: bold;
-    line-height: 16px;
+    line-height: 21px;
     color: $color-blu;
 }
 
 .text-highlight-open {
     float: left;
 }
+
+
+
 @media screen and (max-width: 480px) {
 
+    h1 {
+        font-size: $header-size;
+        line-height: $header-line;
+        margin-left: $mobile-margin-h;
+        margin-right: $mobile-margin-h;
+    }
+
+    h2, h3, h4, h5, h6 {
+        font-size: $subheader-size;
+        line-height: $subheader-line;
+        margin-left: $mobile-margin-h;
+        margin-right: $mobile-margin-h;
+        margin-bottom: $subheader-margin-bottom;
+    }
+
+    p, ol, ul {
+        font-size: $body-size;
+        line-height: $body-line;
+        margin-left: $mobile-margin-h;
+        margin-right: $mobile-margin-h;
+        margin-bottom: $body-margin-bottom;
+    }
+
+    a {
+        font-size: $body-size;
+        line-height: $body-line;
+        margin-bottom: $body-margin-bottom;
+    }
+
+    pre {
+        margin-left: $mobile-margin-h;
+        margin-right: $mobile-margin-h;
+    }
+
+    figcaption {
+        margin-left: $mobile-margin-h;
+        margin-right: $mobile-margin-h;
+    }
+
+    figure {
+        margin-bottom: $body-margin-bottom;
+    }
 }

@@ -10,55 +10,45 @@ h1, h2, h3, h4 {
   text-align: left;
 }
 
+p, ol, ul, a {
+  font-size: 18px;
+  line-height: 30px;
+}
+
 h1 {
-  font-size: 28px;
-  line-height: 40px;
+  font-size: 42px;
+  line-height: 56px;
   margin-block-end: 0;
   margin-block-start: 0;
   margin-top: 0;
-  margin-left: 8px;
-  margin-right: 8px;
   font-weight: 700;
+  margin-left: 32px;
+  margin-right: 32px;
   font-family: "Roboto Condensed";
 }
 
-h2 {
-  font-size: 18px;
-  line-height: 24px;
+h2, h3, h4, h5, h6 {
+  font-size: 24px;
+  line-height: 36px;
   margin-block-end: 0;
   margin-block-start: 0;
   margin-top: 0px;
-  margin-bottom: 14px;
-  margin-left: 8px;
-  margin-right: 8px;
-}
-
-h3, h4, h5, h6 {
-  font-size: 18px;
-  line-height: 24px;
-  margin-block-end: 0;
-  margin-block-start: 0;
-  margin-top: 0px;
-  margin-bottom: 14px;
-  margin-left: 8px;
-  margin-right: 8px;
+  margin-bottom: 24px;
+  margin-left: 32px;
+  margin-right: 32px;
 }
 
 p {
   margin: 0;
   text-align: left;
-  font-size: 14px;
-  line-height: 21px;
-  margin-left: 8px;
-  margin-right: 8px;
-  margin-bottom: 14px;
+  margin-left: 32px;
+  margin-right: 32px;
+  margin-bottom: 27px;
 }
 
 ol {
   margin: 0;
   text-align: left;
-  font-size: 14px;
-  line-height: 21px;
   margin-left: 8px;
   margin-right: 8px;
 }
@@ -66,8 +56,6 @@ ol {
 ul {
   margin: 0;
   text-align: left;
-  font-size: 14px;
-  line-height: 21px;
   margin-left: 8px;
   margin-right: 8px;
   padding-left: 0;
@@ -75,7 +63,7 @@ ul {
 }
 
 li {
-  margin-bottom: 14px;
+  margin-bottom: 27px;
 }
 
 a {
@@ -84,14 +72,12 @@ a {
   font-weight: 600;
   margin: 0;
   text-align: left;
-  font-size: 14px;
-  line-height: 21px;
-  margin-bottom: 14px;
+  margin-bottom: 27px;
 }
 
 pre {
-  margin-left: 8px;
-  margin-right: 8px;
+  margin-left: 32px;
+  margin-right: 32px;
 }
 
 code {
@@ -101,6 +87,19 @@ code {
   max-width: calc(100% - 16px);
   font-size: 14px;
   overflow-x: scroll;
+}
+
+figcaption {
+  text-align: center;
+  margin-left: 32px;
+  margin-right: 32px;
+  font-style: italic;
+  color: #9BA5B1;
+  font-weight: 300;
+}
+
+figure {
+  margin-bottom: 27px;
 }
 
 .text_meta_date {
@@ -128,7 +127,7 @@ code {
 .text-download {
   font-size: 12px;
   font-weight: bold;
-  line-height: 16px;
+  line-height: 21px;
   color: #36B9E3;
 }
 
@@ -136,20 +135,64 @@ code {
   float: left;
 }
 
+@media screen and (max-width: 480px) {
+  h1 {
+    font-size: 28px;
+    line-height: 40px;
+    margin-left: 8px;
+    margin-right: 8px;
+  }
+
+  h2, h3, h4, h5, h6 {
+    font-size: 18px;
+    line-height: 24px;
+    margin-left: 8px;
+    margin-right: 8px;
+    margin-bottom: 14px;
+  }
+
+  p, ol, ul {
+    font-size: 14px;
+    line-height: 21px;
+    margin-left: 8px;
+    margin-right: 8px;
+    margin-bottom: 14px;
+  }
+
+  a {
+    font-size: 14px;
+    line-height: 21px;
+    margin-bottom: 14px;
+  }
+
+  pre {
+    margin-left: 8px;
+    margin-right: 8px;
+  }
+
+  figcaption {
+    margin-left: 8px;
+    margin-right: 8px;
+  }
+
+  figure {
+    margin-bottom: 14px;
+  }
+}
 .annotationCard {
   float: left;
   width: 100%;
   display: flex;
   flex-direction: row;
   margin-top: 24px;
-  margin-bottom: 24px;
+  margin-bottom: 40px;
 }
 
 .annotationProfile {
-  width: 24px;
-  min-width: 24px;
-  margin-right: 8px;
-  border-radius: 12px;
+  width: 32px;
+  min-width: 32px;
+  margin-right: 16px;
+  border-radius: 16px;
   margin-top: 8px;
 }
 
@@ -185,32 +228,45 @@ code {
   margin-bottom: 16px;
 }
 
+@media screen and (max-width: 480px) {
+  .annotationCard {
+    margin-bottom: 24px;
+  }
+
+  .annotationProfile {
+    width: 24px;
+    min-width: 24px;
+    margin-right: 8px;
+    border-radius: 12px;
+    margin-top: 8px;
+  }
+}
 .doc_page {
-  margin-top: 56px;
+  margin-top: 96px;
 }
 
 .doc_bar {
   width: 100%;
-  height: 48px;
+  height: 64px;
   background-color: rgba(248, 248, 248, 0.95);
   position: fixed;
   top: 0;
 }
 
 .doc_bar_icons {
-  height: 48px;
+  height: 64px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin-left: 8px;
+  margin-left: 0px;
   margin-right: 8px;
 }
 
 .doc_bar_download {
   display: flex;
   flex-direction: row;
-  height: 16px;
+  height: 20px;
   border-radius: 12px;
   border-style: solid;
   border-color: #36B9E3;
@@ -229,34 +285,68 @@ svg {
   fill: #373B40;
 }
 
+@media screen and (max-width: 480px) {
+  .doc_page {
+    margin-top: 56px;
+  }
+
+  .doc_bar {
+    width: 100%;
+    height: 48px;
+  }
+
+  .doc_bar_icons {
+    height: 48px;
+    margin-left: 8px;
+    margin-right: 8px;
+  }
+}
 .user_card_holder {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-bottom: 16px;
-  margin-left: 8px;
+  margin-bottom: 24px;
+  margin-left: 32px;
 }
 
 .user_profile {
-  width: 36px;
-  height: 36px;
-  border-radius: 18px;
+  height: 56px;
 }
 
 .user_profile_pic {
-  width: 36px;
-  height: 36px;
-  border-radius: 18px;
+  width: 56px;
+  height: 56px;
+  border-radius: 28px;
 }
 
 .user_card_text_top {
   margin-bottom: 0px;
+  font-size: 14px;
+  line-height: 21px;
 }
 
 .user_card_text_bottom {
   margin-bottom: 0px;
+  font-size: 14px;
+  line-height: 21px;
 }
 
+@media screen and (max-width: 480px) {
+  .user_card_holder {
+    margin-bottom: 16px;
+    margin-left: 8px;
+  }
+
+  .user_profile {
+    height: 36px;
+  }
+
+  .user_profile_pic {
+    width: 36px;
+    height: 36px;
+    border-radius: 18px;
+  }
+}
 html, body {
   font-family: "Overpass", "Roboto", sans-serif;
   background: #f8f8f8;
@@ -264,7 +354,7 @@ html, body {
 }
 
 .page {
-  padding: 32px;
+  padding: 0;
 }
 
 figure {
@@ -296,16 +386,27 @@ p > img {
 }
 
 figure {
-  margin: 0;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 section {
   margin-bottom: 24px;
 }
 
+.App {
+  width: 45rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 @media screen and (max-width: 480px) {
   .page {
     padding: 0;
+  }
+
+  .App {
+    width: 100%;
   }
 }
 

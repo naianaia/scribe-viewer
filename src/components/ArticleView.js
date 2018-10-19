@@ -174,13 +174,8 @@ const mapStateToProps = state => {
 
 
     //const userData = state.pageData[state.queryData.uid];
-
-    const pageData = _.values(state.pageData);
-    console.log(pageData);
-    const data = pageData[1];
-
-    var artnum = 3;
-    if (data) {
+    console.log(state.pageData);
+    if (state.pageData) {
         const { [state.queryData.uid]: userData } = state.pageData;
         console.log(userData);
         const { [state.queryData.aid]: articleData } = userData.items;
