@@ -1,20 +1,26 @@
 
+$mobile-margin-h: 8px;
+$margin-h: 32px;
+
 .user_card_holder {
     display: flex;
     flex-direction: row;
     align-items: center;
     margin-bottom: 24px;
-    margin-left: $margin-h;
+    margin-left: -32px;
+    
 }
 
 .user_profile {
     height: 56px;
+    margin-right: 16px;
 }
 
 .user_profile_pic {
     width: 56px;
     height: 56px;
     border-radius: 28px;
+    margin: 0;
 }
 
 .user_card_text_top {
@@ -33,7 +39,7 @@
 
     .user_card_holder {
         margin-bottom: 16px;
-        margin-left: $mobile-margin-h;
+        margin-left: 0;
     }
 
     .user_profile {
@@ -44,5 +50,15 @@
         width: 36px;
         height: 36px;
         border-radius: 18px;
+    }
+
+    .user_card_text_top {
+        font-size: $detail-size;
+        line-height: $detail-line;
+    }
+    
+    .user_card_text_bottom {
+        font-size: $detail-size;
+        line-height: $detail-line;
     }
 }

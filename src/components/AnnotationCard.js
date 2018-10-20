@@ -25,7 +25,7 @@ class AnnotationCard extends Component {
     render() {
         return (
             <div class='annotationCard'>
-                <div class='annotationProfile'>
+                <div class='annotationProfileHolder'>
                     <img class='annotationProfile' src={this.props.profile} />
                 </div>
                 <div class='annotationContent'>

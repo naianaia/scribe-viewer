@@ -6,6 +6,7 @@ import ReduxThunk from 'redux-thunk';
 import reducers from './redux/reducers';
 import './App.css';
 import ArticleView from './components/ArticleView';
+import BottomBar from './components/BottomBar';
 
 class App extends Component {
 
@@ -30,15 +31,18 @@ class App extends Component {
 
   render() {
     return (
-      <Provider store={createStore(reducers, {}, applyMiddleware(ReduxThunk))}>
-        <div className="AppHolder">
-          <div className="App">
-            <ArticleView />
+      <div class="marginControl">
+        <Provider store={createStore(reducers, {}, applyMiddleware(ReduxThunk))}>
+          <div className="AppHolder">
+            <div className="App">
+              <ArticleView />
+            </div>
+            <div className="Sidebar">
+            </div>
           </div>
-          <div className="Sidebar">
-          </div>
-        </div>
-      </Provider>
+        </Provider>
+        <BottomBar />
+      </div>
     );
   }
 }

@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 import FloatAnchor from 'react-float-anchor';
 import * as actions from '../redux/actions';
 import DocumentBar from './DocumentBar';
+import BottomBar from './BottomBar';
 import ArticleMeta from './ArticleMeta';
 import UserCard from './UserCard';
 import AnnotationCard from './AnnotationCard';

@@ -27,8 +27,6 @@ h1 {
   margin-block-start: 0;
   margin-top: 0;
   font-weight: 700;
-  margin-left: 32px;
-  margin-right: 32px;
   font-family: "Roboto Condensed";
 }
 
@@ -39,31 +37,34 @@ h2, h3, h4, h5, h6 {
   margin-block-start: 0;
   margin-top: 0px;
   margin-bottom: 24px;
-  margin-left: 32px;
-  margin-right: 32px;
   padding-top: 24px;
+}
+
+blockquote {
+  font-size: 24px;
+  line-height: 36px;
+  margin-block-end: 0;
+  margin-block-start: 0;
+  padding-top: 12px;
+  margin-bottom: 36px;
+  font-style: italic;
+  color: #9BA5B1;
 }
 
 p {
   margin: 0;
   text-align: left;
-  margin-left: 32px;
-  margin-right: 32px;
   margin-bottom: 24px;
 }
 
 ol {
   margin: 0;
   text-align: left;
-  margin-left: 8px;
-  margin-right: 8px;
 }
 
 ul {
   margin: 0;
   text-align: left;
-  margin-left: 8px;
-  margin-right: 8px;
   padding-left: 0;
   padding-inline-start: 24px;
 }
@@ -81,24 +82,17 @@ a {
   margin-bottom: 24px;
 }
 
-pre {
-  margin-left: 32px;
-  margin-right: 32px;
-}
-
 code {
   color: #9BA5B1;
   margin: 8px;
   display: inline-block;
   max-width: calc(100% - 16px);
-  font-size: 14px;
+  font-size: 16px;
   overflow-x: scroll;
 }
 
 figcaption {
   text-align: center;
-  margin-left: 32px;
-  margin-right: 32px;
   font-style: italic;
   color: #9BA5B1;
   font-weight: 300;
@@ -112,12 +106,12 @@ figure {
   margin-top: 16px;
   color: #9BA5B1;
   font-style: italic;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .text_meta_url {
   color: #9BA5B1;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .doc_meta {
@@ -138,6 +132,8 @@ figure {
   font-weight: bold;
   line-height: 21px;
   color: #36B9E3;
+  padding-left: 8px;
+  padding-right: 8px;
 }
 
 .text-highlight-open {
@@ -146,63 +142,52 @@ figure {
 
 @media screen and (max-width: 480px) {
   html, body {
-    font-size: 14px;
-    line-height: 21px;
+    font-size: 16px;
+    line-height: 24px;
   }
 
   h1 {
-    font-size: 28px;
-    line-height: 40px;
-    margin-left: 8px;
-    margin-right: 8px;
+    font-size: 32px;
+    line-height: 46px;
   }
 
   h2, h3, h4, h5, h6 {
     font-size: 18px;
     line-height: 24px;
-    margin-left: 8px;
-    margin-right: 8px;
-    margin-bottom: 14px;
+    margin-bottom: 18px;
     padding-top: 16px;
     padding-bottom: 8px;
   }
 
+  blockquote {
+    font-size: 18px;
+    line-height: 27px;
+    margin-top: 0px;
+    margin-bottom: 27px;
+  }
+
   p, ol, ul {
-    font-size: 14px;
-    line-height: 21px;
-    margin-left: 8px;
-    margin-right: 8px;
-    margin-bottom: 14px;
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 24px;
   }
 
   .annotationCard {
-    font-size: 14px;
-    line-height: 21px;
-    margin-left: 8px;
-    margin-right: 8px;
-    margin-bottom: 14px;
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 24px;
     font-weight: normal;
     font-style: normal;
   }
 
   a {
-    font-size: 14px;
-    line-height: 21px;
-    margin-bottom: 14px;
-  }
-
-  pre {
-    margin-left: 8px;
-    margin-right: 8px;
-  }
-
-  figcaption {
-    margin-left: 8px;
-    margin-right: 8px;
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 24px;
   }
 
   figure {
-    margin-bottom: 14px;
+    margin-bottom: 24px;
   }
 }
 .annotationMobile {
@@ -216,9 +201,14 @@ figure {
   width: 20rem;
 }
 
+.annotationProfileHolder {
+  margin-top: -20px;
+}
+
 .annotationProfile {
   width: 32px;
   min-width: 32px;
+  margin-left: 16px;
   margin-right: 16px;
   border-radius: 16px;
   margin-top: -20px;
@@ -242,8 +232,8 @@ figure {
   margin-bottom: 8px;
   margin-left: 16px;
   margin-top: 16px;
-  font-size: 14px;
-  line-height: 21px;
+  font-size: 16px;
+  line-height: 24px;
 }
 
 .annotationText {
@@ -252,8 +242,8 @@ figure {
   margin-left: 16px;
   word-wrap: break-word;
   max-width: 100%;
-  font-size: 14px;
-  line-height: 21px;
+  font-size: 16px;
+  line-height: 24px;
 }
 
 .annotationTime {
@@ -262,8 +252,8 @@ figure {
   margin-right: 16px;
   margin-left: 16px;
   margin-bottom: 16px;
-  font-size: 14px;
-  line-height: 21px;
+  font-size: 16px;
+  line-height: 24px;
 }
 
 .appAnnotation {
@@ -290,9 +280,14 @@ figure {
     margin-top: 0px;
   }
 
+  .annotationProfileHolder {
+    margin-top: 8px;
+  }
+
   .annotationProfile {
     width: 24px;
     min-width: 24px;
+    margin-left: 8px;
     margin-right: 8px;
     border-radius: 12px;
     margin-top: 8px;
@@ -303,11 +298,34 @@ figure {
 }
 
 .doc_bar {
-  width: 100%;
   height: 64px;
   background-color: rgba(248, 248, 248, 0.95);
   position: fixed;
   top: 0;
+  margin-left: -32px;
+  margin-right: -32px;
+  width: calc(100% + 64px);
+}
+
+.bottom_bar {
+  height: 84px;
+  background-color: #373B40;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 84px;
+  margin-left: -32px;
+  margin-right: -32px;
+  width: calc(100% + 64px);
+}
+
+.bottom_bar_inner {
+  margin-left: -32px;
+  margin-right: -32px;
+  width: calc(100% + 64px);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .doc_bar_icons {
@@ -347,14 +365,34 @@ svg {
   height: 42px;
 }
 
+.banner_logo {
+  width: 168px;
+  height: 42px;
+}
+
 @media screen and (max-width: 480px) {
   .doc_page {
     margin-top: 56px;
   }
 
   .doc_bar {
-    width: 100%;
     height: 48px;
+    margin-left: -8px;
+    margin-right: -8px;
+    width: calc(100% + 16px);
+  }
+
+  .bottom_bar {
+    height: 64px;
+    margin-left: -8px;
+    margin-right: -8px;
+    width: calc(100% + 16px);
+  }
+
+  .bottom_bar_inner {
+    margin-left: 0px;
+    margin-right: 0px;
+    width: 100%;
   }
 
   .doc_bar_icons {
@@ -367,41 +405,48 @@ svg {
     width: 32px;
     height: 32px;
   }
+
+  .banner_logo {
+    width: 128px;
+    height: 32px;
+  }
 }
 .user_card_holder {
   display: flex;
   flex-direction: row;
   align-items: center;
   margin-bottom: 24px;
-  margin-left: 32px;
+  margin-left: -32px;
 }
 
 .user_profile {
   height: 56px;
+  margin-right: 16px;
 }
 
 .user_profile_pic {
   width: 56px;
   height: 56px;
   border-radius: 28px;
+  margin: 0;
 }
 
 .user_card_text_top {
   margin-bottom: 0px;
-  font-size: 14px;
-  line-height: 21px;
+  font-size: 16px;
+  line-height: 24px;
 }
 
 .user_card_text_bottom {
   margin-bottom: 0px;
-  font-size: 14px;
-  line-height: 21px;
+  font-size: 16px;
+  line-height: 24px;
 }
 
 @media screen and (max-width: 480px) {
   .user_card_holder {
     margin-bottom: 16px;
-    margin-left: 8px;
+    margin-left: 0;
   }
 
   .user_profile {
@@ -413,11 +458,26 @@ svg {
     height: 36px;
     border-radius: 18px;
   }
+
+  .user_card_text_top {
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .user_card_text_bottom {
+    font-size: 12px;
+    line-height: 18px;
+  }
 }
 html, body {
   font-family: "Overpass", "Roboto", sans-serif;
   background: #f8f8f8;
   color: #373B40;
+}
+
+.marginControl {
+  margin-left: 32px;
+  margin-right: 32px;
 }
 
 .page {
@@ -440,16 +500,21 @@ picture {
 
 img {
   width: 100%;
-  margin-left: auto;
-  margin-right: auto;
   max-height: 60vh;
+  padding: 0;
+  margin-top: 32px;
+  margin-bottom: 48px;
+  margin-left: -32px;
+  margin-right: -32px;
+  width: calc(100% + 64px);
 }
 
-p > img {
-  padding: 0;
-  margin-left: -8px;
-  margin-right: -8px;
-  width: calc(100% + 16px);
+.imageCover {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: -32px;
+  margin-right: -32px;
+  width: calc(100% + 64px);
 }
 
 figure {
@@ -467,6 +532,10 @@ iframe {
 
 hr {
   display: none;
+}
+
+.whitelogo {
+  fill: #f8f8f8;
 }
 
 .AppHolder {
@@ -493,6 +562,11 @@ hr {
 }
 
 @media screen and (max-width: 480px) {
+  .marginControl {
+    margin-left: 8px;
+    margin-right: 8px;
+  }
+
   .AppHolder {
     width: 100%;
   }
@@ -507,6 +581,18 @@ hr {
 
   .App {
     width: 100%;
+  }
+
+  img {
+    margin-left: -8px;
+    margin-right: -8px;
+    width: calc(100% + 16px);
+  }
+
+  .imageCover {
+    margin-left: -8px;
+    margin-right: -8px;
+    width: calc(100% + 16px);
   }
 }
 
