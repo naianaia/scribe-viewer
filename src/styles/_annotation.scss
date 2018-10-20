@@ -11,8 +11,6 @@
     float: left;
     display: flex;
     flex-direction: row;
-    margin-top: 24px;
-    margin-bottom: 40px;
     width: 20rem;
 }
 
@@ -21,13 +19,14 @@
     min-width: 32px;
     margin-right: 16px;
     border-radius: 16px;
-    margin-top: 8px;
+    margin-top: -20px;
 }
 
 .annotationContent {
     display: flex;
     flex: 1;
     flex-direction: column;
+    margin-top: -44px;
     border-style: solid;
     border-color: $color-blk;
     border-radius: 16px;
@@ -41,6 +40,8 @@
     margin-bottom: 8px;
     margin-left: 16px;
     margin-top: 16px;
+    font-size: $body-size;
+    line-height: $body-line;
 }
 
 .annotationText {
@@ -49,6 +50,8 @@
     margin-left: 16px;
     word-wrap: break-word;
     max-width: 100%;
+    font-size: $body-size;
+    line-height: $body-line;
 }
 
 .annotationTime {
@@ -57,6 +60,8 @@
     margin-right: 16px;
     margin-left: 16px;
     margin-bottom: 16px;
+    font-size: $body-size;
+    line-height: $body-line;
 }
 
 .appAnnotation {
@@ -73,9 +78,10 @@
     }
 
     .annotationCard {
-        margin-bottom: 24px;
         width: 100%;
         max-width: 100%;
+        margin-top: 24px;
+        margin-bottom: 24px;
         
     }
 

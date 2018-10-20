@@ -141,7 +141,14 @@ class ArticleView extends Component {
                                             return (
                                                 <>
                                                     <FloatAnchor
-                                                        options={{position:'right', vAlign:'center', hAlign: 'left', buffer:24}}
+                                                        options={{
+                                                            position:'right', 
+                                                            vAlign:'top', 
+                                                            hAlign: 'left', 
+                                                            forcePosition: true, 
+                                                            forceHAlign: true,
+                                                            forceVAlign: true,
+                                                            leftBuffer:32}}
                                                         anchor={
                                                             <div className="testBox"></div>
                                                         }

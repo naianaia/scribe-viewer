@@ -112,18 +112,21 @@ figure {
   margin-top: 16px;
   color: #9BA5B1;
   font-style: italic;
+  font-size: 14px;
 }
 
 .text_meta_url {
   color: #9BA5B1;
+  font-size: 14px;
 }
 
 .doc_meta {
+  padding-bottom: 8px;
   margin-bottom: 32px;
 }
 
 .text_meta {
-  margin-bottom: 8px;
+  margin-bottom: 0;
 }
 
 .text-annotation {
@@ -210,8 +213,6 @@ figure {
   float: left;
   display: flex;
   flex-direction: row;
-  margin-top: 24px;
-  margin-bottom: 40px;
   width: 20rem;
 }
 
@@ -220,13 +221,14 @@ figure {
   min-width: 32px;
   margin-right: 16px;
   border-radius: 16px;
-  margin-top: 8px;
+  margin-top: -20px;
 }
 
 .annotationContent {
   display: flex;
   flex: 1;
   flex-direction: column;
+  margin-top: -44px;
   border-style: solid;
   border-color: #373B40;
   border-radius: 16px;
@@ -240,6 +242,8 @@ figure {
   margin-bottom: 8px;
   margin-left: 16px;
   margin-top: 16px;
+  font-size: 14px;
+  line-height: 21px;
 }
 
 .annotationText {
@@ -248,6 +252,8 @@ figure {
   margin-left: 16px;
   word-wrap: break-word;
   max-width: 100%;
+  font-size: 14px;
+  line-height: 21px;
 }
 
 .annotationTime {
@@ -256,6 +262,8 @@ figure {
   margin-right: 16px;
   margin-left: 16px;
   margin-bottom: 16px;
+  font-size: 14px;
+  line-height: 21px;
 }
 
 .appAnnotation {
@@ -272,9 +280,10 @@ figure {
   }
 
   .annotationCard {
-    margin-bottom: 24px;
     width: 100%;
     max-width: 100%;
+    margin-top: 24px;
+    margin-bottom: 24px;
   }
 
   .annotationProfile {

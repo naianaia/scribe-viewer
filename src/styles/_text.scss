@@ -144,18 +144,21 @@ figure {
     margin-top: 16px;
     color: $color-grey;
     font-style: italic;
+    font-size: $body-size;
 }
 
 .text_meta_url {
     color: $color-grey;
+    font-size: $body-size;
 }
 
 .doc_meta {
+    padding-bottom: $header-margin-bottom;
     margin-bottom: $meta-margin-bottom;
 }
 
 .text_meta {
-    margin-bottom: $header-margin-bottom;
+    margin-bottom: 0;
 }
 
 .text-annotation {
