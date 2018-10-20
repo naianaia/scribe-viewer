@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Parser from 'html-react-parser';
 import '../App.css';
 import { connect } from 'react-redux';
+import FloatAnchor from 'react-float-anchor';
 import * as actions from '../redux/actions';
 import DocumentBar from './DocumentBar';
 import ArticleMeta from './ArticleMeta';
@@ -139,13 +140,32 @@ class ArticleView extends Component {
                                         if (this.state.annotations[spanId]) {
                                             return (
                                                 <>
-                                                    <span class={spanClass} id={spanId} onClick={this.toggleCard.bind(this, spanId) }>{spanContent}</span>
-                                                    <AnnotationCard 
-                                                        profile="https://avatars2.githubusercontent.com/u/1021104?s=400&v=4"
-                                                        name="anonymous"
-                                                        time="1 hour ago"
-                                                        spanId={spanId}
+                                                    <FloatAnchor
+                                                        options={{position:'right', vAlign:'center', hAlign: 'left', buffer:24}}
+                                                        anchor={
+                                                            <div className="testBox"></div>
+                                                        }
+                                                        float={
+                                                            <div className="annotationDesktop">
+                                                                <AnnotationCard 
+                                                                    profile="https://avatars2.githubusercontent.com/u/1021104?s=400&v=4"
+                                                                    name="anonymous"
+                                                                    time="1 hour ago"
+                                                                    spanId={spanId}
+                                                                />
+                                                            </div>
+                                                        }
+                                                        
                                                     />
+                                                    <span class={spanClass} id={spanId} onClick={this.toggleCard.bind(this, spanId) }>{spanContent}</span>
+                                                    <div className="annotationMobile">
+                                                        <AnnotationCard 
+                                                            profile="https://avatars2.githubusercontent.com/u/1021104?s=400&v=4"
+                                                            name="anonymous"
+                                                            time="1 hour ago"
+                                                            spanId={spanId}
+                                                        />
+                                                    </div>
                                                 </>
                                             )
                                         }

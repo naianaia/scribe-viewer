@@ -59,13 +59,46 @@ section {
     margin-bottom: 24px;
 }
 
-.App {
-    width: 45rem;
+iframe {
+    max-width: 100%;
+}
+
+hr {
+    display: none;
+}
+
+.AppHolder {
+    display: flex;
+    flex-direction: row;
+    width: 65rem;
     margin-left: auto;
     margin-right: auto;
 }
 
+.App {
+    width: 45rem;
+}
+
+.Sidebar {
+    width: 20rem;
+}
+
+.testBox {
+    float: left;
+    width: 100%;
+    height: 0px;
+    background-color: red;
+}
+
 @media screen and (max-width: 480px) {
+    .AppHolder {
+        width: 100%;
+    }
+
+    .Sidebar {
+        display: none;
+    }
+
     .page {
         padding: 0;
     }

@@ -20,7 +20,7 @@ $body-line: 21px;
 $body-margin-bottom: 14px;
 
 
-$d-header-size: 42px;
+$d-header-size: 46px;
 $d-header-line: 56px;
 $d-header-margin-top: 0;
 $d-header-margin-bottom: 12px;
@@ -32,9 +32,12 @@ $d-subheader-margin-bottom: 24px;
 
 $d-body-size: 18px;
 $d-body-line: 30px;
-$d-body-margin-bottom: 27px;
+$d-body-margin-bottom: 24px;
 
-
+html, body {
+    font-size: $d-body-size;
+    line-height: $d-body-line;
+}
 
 h1, h2, h3, h4 {
     text-align: $txt-alignment;
@@ -68,6 +71,7 @@ h2, h3, h4, h5, h6 {
     margin-bottom: $d-subheader-margin-bottom;
     margin-left: $margin-h;
     margin-right: $margin-h;
+    padding-top: 24px;
 }
 
 
@@ -173,6 +177,11 @@ figure {
 
 @media screen and (max-width: 480px) {
 
+    html, body {
+        font-size: $body-size;
+        line-height: $body-line;
+    }
+
     h1 {
         font-size: $header-size;
         line-height: $header-line;
@@ -186,6 +195,8 @@ figure {
         margin-left: $mobile-margin-h;
         margin-right: $mobile-margin-h;
         margin-bottom: $subheader-margin-bottom;
+        padding-top: 16px;
+        padding-bottom: 8px;
     }
 
     p, ol, ul {
@@ -194,6 +205,16 @@ figure {
         margin-left: $mobile-margin-h;
         margin-right: $mobile-margin-h;
         margin-bottom: $body-margin-bottom;
+    }
+
+    .annotationCard {
+        font-size: $body-size;
+        line-height: $body-line;
+        margin-left: $mobile-margin-h;
+        margin-right: $mobile-margin-h;
+        margin-bottom: $body-margin-bottom;
+        font-weight: normal;
+        font-style: normal;
     }
 
     a {

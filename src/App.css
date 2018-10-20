@@ -6,6 +6,11 @@
   font-weight: 400;
   src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
 }
+html, body {
+  font-size: 18px;
+  line-height: 30px;
+}
+
 h1, h2, h3, h4 {
   text-align: left;
 }
@@ -16,7 +21,7 @@ p, ol, ul, a {
 }
 
 h1 {
-  font-size: 42px;
+  font-size: 46px;
   line-height: 56px;
   margin-block-end: 0;
   margin-block-start: 0;
@@ -36,6 +41,7 @@ h2, h3, h4, h5, h6 {
   margin-bottom: 24px;
   margin-left: 32px;
   margin-right: 32px;
+  padding-top: 24px;
 }
 
 p {
@@ -43,7 +49,7 @@ p {
   text-align: left;
   margin-left: 32px;
   margin-right: 32px;
-  margin-bottom: 27px;
+  margin-bottom: 24px;
 }
 
 ol {
@@ -63,7 +69,7 @@ ul {
 }
 
 li {
-  margin-bottom: 27px;
+  margin-bottom: 24px;
 }
 
 a {
@@ -72,7 +78,7 @@ a {
   font-weight: 600;
   margin: 0;
   text-align: left;
-  margin-bottom: 27px;
+  margin-bottom: 24px;
 }
 
 pre {
@@ -99,7 +105,7 @@ figcaption {
 }
 
 figure {
-  margin-bottom: 27px;
+  margin-bottom: 24px;
 }
 
 .text_meta_date {
@@ -136,6 +142,11 @@ figure {
 }
 
 @media screen and (max-width: 480px) {
+  html, body {
+    font-size: 14px;
+    line-height: 21px;
+  }
+
   h1 {
     font-size: 28px;
     line-height: 40px;
@@ -149,6 +160,8 @@ figure {
     margin-left: 8px;
     margin-right: 8px;
     margin-bottom: 14px;
+    padding-top: 16px;
+    padding-bottom: 8px;
   }
 
   p, ol, ul {
@@ -157,6 +170,16 @@ figure {
     margin-left: 8px;
     margin-right: 8px;
     margin-bottom: 14px;
+  }
+
+  .annotationCard {
+    font-size: 14px;
+    line-height: 21px;
+    margin-left: 8px;
+    margin-right: 8px;
+    margin-bottom: 14px;
+    font-weight: normal;
+    font-style: normal;
   }
 
   a {
@@ -179,13 +202,17 @@ figure {
     margin-bottom: 14px;
   }
 }
+.annotationMobile {
+  display: none;
+}
+
 .annotationCard {
   float: left;
-  width: 100%;
   display: flex;
   flex-direction: row;
   margin-top: 24px;
   margin-bottom: 40px;
+  width: 20rem;
 }
 
 .annotationProfile {
@@ -205,6 +232,7 @@ figure {
   border-radius: 16px;
   border-width: 1px;
   margin-right: 8px;
+  max-width: calc(100% - 48px);
 }
 
 .annotationAuthor {
@@ -218,6 +246,8 @@ figure {
   margin-bottom: 8px;
   margin-right: 16px;
   margin-left: 16px;
+  word-wrap: break-word;
+  max-width: 100%;
 }
 
 .annotationTime {
@@ -228,9 +258,23 @@ figure {
   margin-bottom: 16px;
 }
 
+.appAnnotation {
+  display: none;
+}
+
 @media screen and (max-width: 480px) {
+  .annotationDesktop {
+    display: none;
+  }
+
+  .annotationMobile {
+    display: block;
+  }
+
   .annotationCard {
     margin-bottom: 24px;
+    width: 100%;
+    max-width: 100%;
   }
 
   .annotationProfile {
@@ -285,6 +329,11 @@ svg {
   fill: #373B40;
 }
 
+.icon_logo {
+  width: 42px;
+  height: 42px;
+}
+
 @media screen and (max-width: 480px) {
   .doc_page {
     margin-top: 56px;
@@ -299,6 +348,11 @@ svg {
     height: 48px;
     margin-left: 8px;
     margin-right: 8px;
+  }
+
+  .icon_logo {
+    width: 32px;
+    height: 32px;
   }
 }
 .user_card_holder {
@@ -394,13 +448,46 @@ section {
   margin-bottom: 24px;
 }
 
-.App {
-  width: 45rem;
+iframe {
+  max-width: 100%;
+}
+
+hr {
+  display: none;
+}
+
+.AppHolder {
+  display: flex;
+  flex-direction: row;
+  width: 65rem;
   margin-left: auto;
   margin-right: auto;
 }
 
+.App {
+  width: 45rem;
+}
+
+.Sidebar {
+  width: 20rem;
+}
+
+.testBox {
+  float: left;
+  width: 100%;
+  height: 0px;
+  background-color: red;
+}
+
 @media screen and (max-width: 480px) {
+  .AppHolder {
+    width: 100%;
+  }
+
+  .Sidebar {
+    display: none;
+  }
+
   .page {
     padding: 0;
   }

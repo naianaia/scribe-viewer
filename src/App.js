@@ -31,8 +31,12 @@ class App extends Component {
   render() {
     return (
       <Provider store={createStore(reducers, {}, applyMiddleware(ReduxThunk))}>
-        <div className="App">
-          <ArticleView />
+        <div className="AppHolder">
+          <div className="App">
+            <ArticleView />
+          </div>
+          <div className="Sidebar">
+          </div>
         </div>
       </Provider>
     );

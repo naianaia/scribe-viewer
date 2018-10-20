@@ -46,6 +46,11 @@ svg {
     fill: $color-blk;
 }
 
+.icon_logo {
+    width: 42px;
+    height: 42px;
+}
+
 @media screen and (max-width: 480px) {
 
     .doc_page {
@@ -61,5 +66,10 @@ svg {
         height: 48px;
         margin-left: 8px;
         margin-right: 8px;
+    }
+    
+    .icon_logo {
+        width: 32px;
+        height: 32px;
     }
 }
