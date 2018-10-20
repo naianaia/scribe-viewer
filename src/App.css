@@ -286,6 +286,10 @@ figure {
     margin-bottom: 24px;
   }
 
+  .annotationContent {
+    margin-top: 0px;
+  }
+
   .annotationProfile {
     width: 24px;
     min-width: 24px;

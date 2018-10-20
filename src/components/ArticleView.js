@@ -148,7 +148,7 @@ class ArticleView extends Component {
                                                             forcePosition: true, 
                                                             forceHAlign: true,
                                                             forceVAlign: true,
-                                                            leftBuffer:32}}
+                                                            leftBuffer:48}}
                                                         anchor={
                                                             <div className="testBox"></div>
                                                         }
