@@ -8,10 +8,6 @@
 @import "styles/navbars";
 @import "styles/userCard";
 
-$mobile-margin-h: 8px;
-$margin-h: 32px;
-$negative-mobile-margin: -8px;
-$negative-margin: -32px;
 
 html, body {
     font-family: 'Overpass', 'Roboto', sans-serif;
@@ -48,16 +44,16 @@ img {
     padding: 0;
     margin-top: 32px;
     margin-bottom: 48px;
-    margin-left: -32px;
-    margin-right: -32px;
+    margin-left: $negative-margin;
+    margin-right: $negative-margin;
     width: calc(100% + 64px);
 }
 
 .imageCover {
     margin-top: 0px;
     margin-bottom: 0px;
-    margin-left: -32px;
-    margin-right: -32px;
+    margin-left: $negative-margin;
+    margin-right: $negative-margin;
     width: calc(100% + 64px);   
 }
 
@@ -76,6 +72,10 @@ iframe {
 
 hr {
     display: none;
+}
+
+.blacklogo {
+    fill: $color-blk;
 }
 
 .whitelogo {

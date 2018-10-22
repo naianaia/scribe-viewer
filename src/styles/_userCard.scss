@@ -1,13 +1,11 @@
 
-$mobile-margin-h: 8px;
-$margin-h: 32px;
 
 .user_card_holder {
     display: flex;
     flex-direction: row;
     align-items: center;
     margin-bottom: 24px;
-    margin-left: -32px;
+    margin-left: $negative-margin;
     
 }
 
@@ -25,14 +23,14 @@ $margin-h: 32px;
 
 .user_card_text_top {
     margin-bottom: 0px;
-    font-size: $body-size;
-    line-height: $body-line;
+    font-size: $d-detail-size;
+    line-height: $d-detail-line;
 }
 
 .user_card_text_bottom {
     margin-bottom: 0px;
-    font-size: $body-size;
-    line-height: $body-line;
+    font-size: $d-detail-size;
+    line-height: $d-detail-line;
 }
 
 @media screen and (max-width: 480px) {

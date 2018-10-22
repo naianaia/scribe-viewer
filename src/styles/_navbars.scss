@@ -18,19 +18,19 @@
 
 .bottom_bar {
     height: 84px;
-    background-color: $color-blk;
+    border-top: 0px solid $color-blk;
     display: flex;
     flex-direction: row;
     align-items: center; 
     margin-top: 84px;
-    margin-left: -32px;
-    margin-right: -32px;
+    margin-left: $negative-margin;
+    margin-right: $negative-margin;
     width: calc(100% + 64px);  
 }
 
 .bottom_bar_inner {
-    margin-left: -32px;
-    margin-right: -32px;
+    margin-left: $negative-margin;
+    margin-right: $negative-margin;
     width: calc(100% + 64px);  
     display: flex;
     flex-direction: row;
@@ -38,6 +38,16 @@
 }
 
 .doc_bar_icons {
+    height: 64px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 0px;
+    margin-right: 8px;
+}
+
+.bottom_bar_icons {
     height: 64px;
     display: flex;
     flex-direction: row;
@@ -109,6 +119,12 @@ svg {
         height: 48px;
         margin-left: 8px;
         margin-right: 8px;
+    }
+
+    .bottom_bar_icons {
+        height: 48px;
+        margin-left: 0px;
+        margin-right: 0px;
     }
 
     .icon_logo {

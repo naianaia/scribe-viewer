@@ -16,7 +16,7 @@ $subheader-margin-top: 0px;
 $subheader-margin-bottom: 18px;
 
 $body-size: 16px;
-$body-line: 24px;
+$body-line: 28px;
 $body-margin-bottom: 24px;
 
 $detail-size: 12px;
@@ -41,10 +41,14 @@ $d-subheader-margin-bottom: 24px;
 $d-subheader-margin-top-wide: 12px;
 $d-subheader-margin-bottom-wide: 36px;
 
-
 $d-body-size: 18px;
 $d-body-line: 30px;
 $d-body-margin-bottom: 24px;
+
+$d-detail-size: 16px;
+$d-detail-line: 24px;
+$d-detail-margin-bottom: 18px;
+
 
 html, body {
     font-size: $d-body-size;
