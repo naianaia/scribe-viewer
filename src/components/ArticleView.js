@@ -124,12 +124,12 @@ class ArticleView extends Component {
                             replace: (domNode) => {
                                 if (domNode.name === 'span') {
                                     if(domNode.attribs.class === 'text-annotation') {
-
+                                        console.log(domNode);
                                         //extract span content and metadata from highlight
                                         var spanClass = domNode.attribs.class;
-                                        var spanId = domNode.attribs.id;
+                                        var spanId = domNode.attribs['data-id'];
+                                        console.log(spanId);
                                         var spanContent = domNode.children[0].data;
-
                                         //shows the highlight and annotation card, depending on state boolean 
                                         if (this.state.annotations[spanId]) {
                                             return (
@@ -142,7 +142,7 @@ class ArticleView extends Component {
                                                             forcePosition: true, 
                                                             forceHAlign: true,
                                                             forceVAlign: true,
-                                                            leftBuffer:48}}
+                                                            leftBuffer:48}}s
                                                         anchor={
                                                             <div className="testBox"></div>
                                                         }
@@ -172,8 +172,14 @@ class ArticleView extends Component {
                                         }
                                         else {
                                             return <span class={spanClass} id={spanId} onClick={this.toggleCard.bind(this, spanId) }>{spanContent}</span>
-                                        }
-                                        
+                                        }   
+                                    }
+                                }
+                                else if (domNode.name === 'style') {
+                                    console.log("style");
+                                    if (domNode.attribs.class === 'scribe-inject') {
+                                        console.log("style scribe");
+                                        return <span />;
                                     }
                                 }
                             }
