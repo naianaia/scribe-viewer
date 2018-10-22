@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import * as actions from '../redux/actions';
 import '../App.css';
 
 
@@ -10,7 +11,8 @@ class AnnotationCard extends Component {
         this.state = {
             profile: "",
             name: "",
-            annotationText: ""
+            annotationText: "",
+            spanId: ""
         }
     }
 
@@ -18,28 +20,45 @@ class AnnotationCard extends Component {
         //wire up state annotation to annotation text and set it to state
         var { [this.props.spanId]: annotationObject } = this.props.annotations;
         var annotationText = annotationObject.text;
-        this.setState({ annotationText: annotationText });
+        this.setState({ annotationText: annotationText, spanId: this.props.spanId });
         console.log(this.props);
+    }
+
+    bindClassToHighlight = () => {
+        console.log("ENTER");
+        console.log(this.state.spanId);
+        this.props.setHover(this.state.spanId);
+    }
+
+    unbindClassToHighlight = () => {
+        console.log("LEAVE");
+        console.log(this.state.spanId);
+        this.props.resetHover();
     }
 
     render() {
         return (
-            <div class='annotationCard'>
-                <div class='annotationProfileHolder'>
+            <span 
+                class='annotationCard' 
+                id={'ac' + this.props.spanId}
+                onMouseEnter={this.bindClassToHighlight}
+                onMouseLeave={this.unbindClassToHighlight}
+            >
+                <span class='annotationProfileHolder'>
                     <img class='annotationProfile' src={this.props.profile} />
-                </div>
-                <div class='annotationContent'>
-                    <div class='annotationAuthor'>
+                </span>
+                <span class='annotationContent'>
+                    <span class='annotationAuthor'>
                         {this.props.name}
-                    </div>
-                    <div class='annotationText'>
+                    </span>
+                    <span class='annotationText'>
                         {this.state.annotationText}
-                    </div>
-                    <div class='annotationTime'>
+                    </span>
+                    <span class='annotationTime'>
                         {this.props.time}
-                    </div>
-                </div>
-            </div>
+                    </span>
+                </span>
+            </span>
         )
     }
 }
@@ -63,4 +82,4 @@ const mapStateToProps = state => {
     return { annotations }
 };
 
-export default connect(mapStateToProps, null)(AnnotationCard);
+export default connect(mapStateToProps, actions)(AnnotationCard);

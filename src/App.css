@@ -124,7 +124,15 @@ figure {
 }
 
 .text-annotation {
-  background-color: rgba(255, 246, 36, 0.33);
+  background-color: rgba(255, 246, 36, 0.25);
+}
+
+.text-annotation:hover {
+  background-color: #FFE70D;
+}
+
+.text-annotation-hover {
+  background-color: #FFE70D;
 }
 
 .text-download {

@@ -175,6 +175,14 @@ figure {
 
 .text-annotation {
     background-color: $color-highlight;
+
+}
+.text-annotation:hover {
+    background-color: $color-highlight-hover;
+}
+
+.text-annotation-hover {
+    background-color: $color-highlight-hover;
 }
 
 .text-download {

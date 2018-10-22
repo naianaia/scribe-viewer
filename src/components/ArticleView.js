@@ -118,14 +118,7 @@ class ArticleView extends Component {
                 <DocumentBar />
                 <div class='doc_page'>
                     <UserCard profile={this.state.annotater_profile} name={this.state.annotater} />
-                    <ArticleMeta
-                        date={this.props.date} 
-                        url={this.props.url} 
-                        title={this.props.title} 
-                        image={this.props.image} 
-                        html={this.props.html} 
-                        author={this.props.author}
-                    />
+
                     <div>
                         {Parser(this.props.html, {
                             replace: (domNode) => {
@@ -165,7 +158,7 @@ class ArticleView extends Component {
                                                         }
                                                         
                                                     />
-                                                    <span class={spanClass} id={spanId} onClick={this.toggleCard.bind(this, spanId) }>{spanContent}</span>
+                                                    <span class={spanClass + ((this.props.hoverId === spanId) ? ' text-annotation-hover' : '')} id={spanId} onClick={this.toggleCard.bind(this, spanId) }>{spanContent}</span>
                                                     <div className="annotationMobile">
                                                         <AnnotationCard 
                                                             profile="https://avatars2.githubusercontent.com/u/1021104?s=400&v=4"
@@ -221,8 +214,10 @@ const mapStateToProps = state => {
 
     }
 
+    const hoverId = state.hoverId;
+
     //console.log(html);
-    return { html, title, url, date, image, author }
+    return { html, title, url, date, image, author, hoverId }
 };
 
 export default addUrlProps({ urlPropsQueryConfig })(connect(mapStateToProps, actions)(ArticleView));
