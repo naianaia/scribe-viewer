@@ -15,7 +15,7 @@ import { addUrlProps, UrlQueryParamTypes } from 'react-url-query';
 
 const urlPropsQueryConfig = {
     userId: { type: UrlQueryParamTypes.string, queryParam: 'au' },
-    authorId: { type: UrlQueryParamTypes.string, queryParam: 'ar' },
+    articleId: { type: UrlQueryParamTypes.string, queryParam: 'ar' },
 };
 
 class ArticleView extends Component {
@@ -23,7 +23,7 @@ class ArticleView extends Component {
     static propTypes = {
         // URL props are automatically decoded and passed in based on the config
         userId: PropTypes.string,
-        authorId: PropTypes.string,
+        articleId: PropTypes.string,
     
         // change handlers are automatically generated when given a config.
         // By default they update that single query parameter and maintain existing
@@ -34,7 +34,7 @@ class ArticleView extends Component {
 
     static defaultProps = {
         userId: '',
-        authorId: '',
+        articleId: '',
     }
 
     constructor () {
@@ -49,9 +49,11 @@ class ArticleView extends Component {
 
     //fetch some data from Firebase
     componentWillMount() {
-        this.props.dataFetch();
-        const { userId, authorId, onChangeUserId, onChangeAuthorId } = this.props;
-        this.props.setQuery(userId, authorId);
+
+        //this.props.dataFetch();
+        const { userId, articleId, onChangeUserId, onChangeAuthorId } = this.props;
+        this.props.setQuery(userId, articleId);
+        this.props.dataFetchStore(userId, articleId);
         this.setState({ ...this.state, annotater: "Ben Mann", annotater_profile: "https://avatars2.githubusercontent.com/u/1021104?s=400&v=4"});
     }
 
@@ -200,12 +202,15 @@ const mapStateToProps = state => {
     //const userData = state.pageData[state.queryData.uid];
     //console.log(state.pageData);
     if (state.pageData) {
-        const { [state.queryData.uid]: userData } = state.pageData;
+        //const { [state.queryData.uid]: userData } = state.pageData;
         //console.log(userData);
-        const { [state.queryData.aid]: articleData } = userData.items;
+        //const { [state.queryData.aid]: articleData } = userData.items;
         //console.log(articleData);
         
+        const articleData = state.pageData;
+
         html = articleData.article.content;
+        console.log(html);
         title = articleData.article.title;
         image = articleData.article.image;
         url = (new URL(articleData.url)).hostname;

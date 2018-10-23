@@ -1,6 +1,6 @@
 import firebase from 'firebase';
 
-export const dataFetch = (city) => {
+export const dataFetch = () => {
     console.log("fetch start");
     return (dispatch) => {
         firebase.database().ref('/users/')
@@ -13,6 +13,20 @@ export const dataFetch = (city) => {
             });
     };
 };
+
+export const dataFetchStore = (userId, articleId) => {
+    console.log("store fetch start");
+    return (dispatch) => {
+        var db = firebase.firestore();
+        db.collection("users").doc(userId).collection("items").doc(articleId).onSnapshot((snapshot) => {
+            if (snapshot.data()) {
+                dispatch({ type: 'get_data', payload: snapshot.data() });
+            }
+        });
+    }
+};
+
+
 
 export const setQuery = (uid, aid) => {
     return {
