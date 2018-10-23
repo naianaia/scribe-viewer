@@ -1,28 +1,62 @@
 
+
 .user_card_holder {
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-bottom: 16px;
-    margin-left: 8px;
+    margin-bottom: 24px;
+    margin-left: $negative-margin;
+    
 }
 
 .user_profile {
-    width: 36px;
-    height: 36px;
-    border-radius: 18px;
+    height: 56px;
+    margin-right: 16px;
 }
 
 .user_profile_pic {
-    width: 36px;
-    height: 36px;
-    border-radius: 18px;
+    width: 56px;
+    height: 56px;
+    border-radius: 28px;
+    margin: 0;
 }
 
 .user_card_text_top {
     margin-bottom: 0px;
+    font-size: $d-detail-size;
+    line-height: $d-detail-line;
 }
 
 .user_card_text_bottom {
     margin-bottom: 0px;
+    font-size: $d-detail-size;
+    line-height: $d-detail-line;
+}
+
+@media screen and (max-width: 480px) {
+
+    .user_card_holder {
+        margin-bottom: 16px;
+        margin-left: 0;
+    }
+
+    .user_profile {
+        height: 36px;
+    }
+
+    .user_profile_pic {
+        width: 36px;
+        height: 36px;
+        border-radius: 18px;
+    }
+
+    .user_card_text_top {
+        font-size: $detail-size;
+        line-height: $detail-line;
+    }
+    
+    .user_card_text_bottom {
+        font-size: $detail-size;
+        line-height: $detail-line;
+    }
 }

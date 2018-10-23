@@ -20,3 +20,17 @@ export const setQuery = (uid, aid) => {
         payload: { uid: uid, aid: aid }
     };
 }
+
+export const setHover = (id) => {
+    return {
+        type: 'set_hover',
+        payload: id
+    }
+} 
+
+export const resetHover = () => {
+    return {
+        type: 'reset_hover',
+        payload: {}
+    }
+} 

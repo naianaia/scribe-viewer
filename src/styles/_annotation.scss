@@ -1,43 +1,69 @@
 
+.annotationDesktop {
+
+}
+
+.annotationMobile {
+    display: none;
+}
+
 .annotationCard {
     float: left;
-    width: 100%;
     display: flex;
     flex-direction: row;
-    margin-top: 24px;
-    margin-bottom: 24px;
+    width: 20rem;
+}
+
+.annotationProfileHolder {
+    margin-top: -16px;
 }
 
 .annotationProfile {
-    width: 24px;
-    min-width: 24px;
-    margin-right: 8px;
-    border-radius: 12px;
-    margin-top: 8px;
+    width: 32px;
+    min-width: 32px;
+    margin-left: 16px;
+    margin-right: 16px;
+    border-radius: 16px;
+    margin-top: -16px;
 }
 
 .annotationContent {
     display: flex;
     flex: 1;
     flex-direction: column;
+    margin-top: -44px;
     border-style: solid;
     border-color: $color-blk;
     border-radius: 16px;
     border-width: 1px;
     margin-right: 8px;
+    max-width: calc(100% - 48px);
+}
+
+.annotationBar {
+    margin-top: 16px;
+    margin-right: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .annotationAuthor {
     font-weight: bold;
     margin-bottom: 8px;
     margin-left: 16px;
-    margin-top: 16px;
+    font-size: $d-detail-size;
+    line-height: $d-detail-line;
 }
 
 .annotationText {
     margin-bottom: 8px;
     margin-right: 16px;
     margin-left: 16px;
+    word-wrap: break-word;
+    max-width: 100%;
+    font-size: $d-detail-size;
+    line-height: $d-detail-line;
 }
 
 .annotationTime {
@@ -46,4 +72,47 @@
     margin-right: 16px;
     margin-left: 16px;
     margin-bottom: 16px;
+    font-size: $d-detail-size;
+    line-height: $d-detail-line;
+}
+
+.appAnnotation {
+    display: none;
+}
+
+@media screen and (max-width: 480px) {
+    .annotationDesktop {
+        display: none;
+    }
+    
+    .annotationMobile {
+        float: left;
+        width: 100%;
+        display: block;
+    }
+
+    .annotationCard {
+        width: 100%;
+        max-width: 100%;
+        margin-top: 24px;
+        margin-bottom: 24px;
+        
+    }
+
+    .annotationContent {
+        margin-top: 0px;
+    }
+
+    .annotationProfileHolder {
+        margin-top: 8px;
+    }
+
+    .annotationProfile {
+        width: 24px;
+        min-width: 24px;
+        margin-left: 8px;
+        margin-right: 8px;
+        border-radius: 12px;
+        margin-top: 8px;
+    }
 }

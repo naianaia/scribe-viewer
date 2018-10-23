@@ -4,8 +4,10 @@ import PropTypes from 'prop-types';
 import Parser from 'html-react-parser';
 import '../App.css';
 import { connect } from 'react-redux';
+import FloatAnchor from 'react-float-anchor';
 import * as actions from '../redux/actions';
 import DocumentBar from './DocumentBar';
+import BottomBar from './BottomBar';
 import ArticleMeta from './ArticleMeta';
 import UserCard from './UserCard';
 import AnnotationCard from './AnnotationCard';
@@ -42,6 +44,7 @@ class ArticleView extends Component {
             annotater: "",
             annotater_profile: ""
         }
+
     }
 
     //fetch some data from Firebase
@@ -49,8 +52,6 @@ class ArticleView extends Component {
         this.props.dataFetch();
         const { userId, authorId, onChangeUserId, onChangeAuthorId } = this.props;
         this.props.setQuery(userId, authorId);
-        console.log(userId);
-        console.log(authorId);
         this.setState({ ...this.state, annotater: "Ben Mann", annotater_profile: "https://avatars2.githubusercontent.com/u/1021104?s=400&v=4"});
     }
 
@@ -79,7 +80,7 @@ class ArticleView extends Component {
         var time = "1 hour ago";
 
         return (
-            <div class='annotationCard' onClick={this.toggleCard.bind(this, spanId)}>
+            <div class='annotationCard' onClick={this.toggleCard(spanId)}>
                 <div class='annotationProfile'>
                     <img class='annotationProfile' src={profile} />
                 </div>
@@ -116,43 +117,66 @@ class ArticleView extends Component {
                 <DocumentBar />
                 <div class='doc_page'>
                     <UserCard profile={this.state.annotater_profile} name={this.state.annotater} />
-                    <ArticleMeta
-                        date={this.props.date} 
-                        url={this.props.url} 
-                        title={this.props.title} 
-                        image={this.props.image} 
-                        html={this.props.html} 
-                        author={this.props.author}
-                    />
+
                     <div>
                         {Parser(this.props.html, {
                             replace: (domNode) => {
                                 if (domNode.name === 'span') {
                                     if(domNode.attribs.class === 'text-annotation') {
-
                                         //extract span content and metadata from highlight
                                         var spanClass = domNode.attribs.class;
-                                        var spanId = domNode.attribs.id;
+                                        var spanId = domNode.attribs['data-id'];
                                         var spanContent = domNode.children[0].data;
-
                                         //shows the highlight and annotation card, depending on state boolean 
                                         if (this.state.annotations[spanId]) {
                                             return (
                                                 <>
-                                                    <span class={spanClass} id={spanId} onClick={this.toggleCard.bind(this, spanId) }>{spanContent}</span>
-                                                    <AnnotationCard 
-                                                        profile="https://avatars2.githubusercontent.com/u/1021104?s=400&v=4"
-                                                        name="anonymous"
-                                                        time="1 hour ago"
-                                                        spanId={spanId}
+                                                    <FloatAnchor
+                                                        options={{
+                                                            position:'right', 
+                                                            vAlign:'top', 
+                                                            hAlign: 'left', 
+                                                            forcePosition: true, 
+                                                            forceHAlign: true,
+                                                            forceVAlign: true,
+                                                            leftBuffer:48}}s
+                                                        anchor={
+                                                            <div className="testBox"></div>
+                                                        }
+                                                        float={
+                                                            <div className="annotationDesktop">
+                                                                <AnnotationCard 
+                                                                    profile="https://avatars2.githubusercontent.com/u/1021104?s=400&v=4"
+                                                                    name="anonymous"
+                                                                    time="1 hour ago"
+                                                                    spanId={spanId}
+                                                                    closeFunc={this.toggleCard.bind(this, spanId)}
+                                                                />
+                                                            </div>
+                                                        }
+                                                        
                                                     />
+                                                    <span class={spanClass + ((this.props.hoverId === spanId) ? ' text-annotation-hover' : '')} id={spanId} onClick={this.toggleCard.bind(this, spanId) }>{spanContent}</span>
+                                                    <div className="annotationMobile">
+                                                        <AnnotationCard 
+                                                            profile="https://avatars2.githubusercontent.com/u/1021104?s=400&v=4"
+                                                            name="anonymous"
+                                                            time="1 hour ago"
+                                                            spanId={spanId}
+                                                            closeFunc={this.toggleCard.bind(this, spanId)}
+                                                        />
+                                                    </div>
                                                 </>
                                             )
                                         }
                                         else {
                                             return <span class={spanClass} id={spanId} onClick={this.toggleCard.bind(this, spanId) }>{spanContent}</span>
-                                        }
-                                        
+                                        }   
+                                    }
+                                }
+                                else if (domNode.name === 'style') {
+                                    if (domNode.attribs.class === 'scribe-inject') {
+                                        return <span />;
                                     }
                                 }
                             }
@@ -174,17 +198,12 @@ const mapStateToProps = state => {
 
 
     //const userData = state.pageData[state.queryData.uid];
-
-    const pageData = _.values(state.pageData);
-    console.log(pageData);
-    const data = pageData[1];
-
-    var artnum = 3;
-    if (data) {
+    //console.log(state.pageData);
+    if (state.pageData) {
         const { [state.queryData.uid]: userData } = state.pageData;
-        console.log(userData);
+        //console.log(userData);
         const { [state.queryData.aid]: articleData } = userData.items;
-        console.log(articleData);
+        //console.log(articleData);
         
         html = articleData.article.content;
         title = articleData.article.title;
@@ -198,8 +217,10 @@ const mapStateToProps = state => {
 
     }
 
+    const hoverId = state.hoverId;
+
     //console.log(html);
-    return { html, title, url, date, image, author }
+    return { html, title, url, date, image, author, hoverId }
 };
 
 export default addUrlProps({ urlPropsQueryConfig })(connect(mapStateToProps, actions)(ArticleView));

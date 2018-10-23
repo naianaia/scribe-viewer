@@ -6,76 +6,71 @@
   font-weight: 400;
   src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
 }
+html, body {
+  font-size: 18px;
+  line-height: 30px;
+}
+
 h1, h2, h3, h4 {
   text-align: left;
 }
 
+p, ol, ul, a {
+  font-size: 18px;
+  line-height: 30px;
+}
+
 h1 {
-  font-size: 28px;
-  line-height: 40px;
+  font-size: 46px;
+  line-height: 56px;
   margin-block-end: 0;
   margin-block-start: 0;
   margin-top: 0;
-  margin-left: 8px;
-  margin-right: 8px;
   font-weight: 700;
   font-family: "Roboto Condensed";
 }
 
-h2 {
-  font-size: 18px;
-  line-height: 24px;
+h2, h3, h4, h5, h6 {
+  font-size: 24px;
+  line-height: 36px;
   margin-block-end: 0;
   margin-block-start: 0;
   margin-top: 0px;
-  margin-bottom: 14px;
-  margin-left: 8px;
-  margin-right: 8px;
+  margin-bottom: 24px;
+  padding-top: 24px;
 }
 
-h3, h4, h5, h6 {
-  font-size: 18px;
-  line-height: 24px;
+blockquote {
+  font-size: 24px;
+  line-height: 36px;
   margin-block-end: 0;
   margin-block-start: 0;
-  margin-top: 0px;
-  margin-bottom: 14px;
-  margin-left: 8px;
-  margin-right: 8px;
+  padding-top: 12px;
+  margin-bottom: 36px;
+  font-style: italic;
+  color: #9BA5B1;
 }
 
 p {
   margin: 0;
   text-align: left;
-  font-size: 14px;
-  line-height: 21px;
-  margin-left: 8px;
-  margin-right: 8px;
-  margin-bottom: 14px;
+  margin-bottom: 24px;
 }
 
 ol {
   margin: 0;
   text-align: left;
-  font-size: 14px;
-  line-height: 21px;
-  margin-left: 8px;
-  margin-right: 8px;
 }
 
 ul {
   margin: 0;
   text-align: left;
-  font-size: 14px;
-  line-height: 21px;
-  margin-left: 8px;
-  margin-right: 8px;
   padding-left: 0;
   padding-inline-start: 24px;
 }
 
 li {
-  margin-bottom: 14px;
+  margin-bottom: 24px;
 }
 
 a {
@@ -84,14 +79,7 @@ a {
   font-weight: 600;
   margin: 0;
   text-align: left;
-  font-size: 14px;
-  line-height: 21px;
-  margin-bottom: 14px;
-}
-
-pre {
-  margin-left: 8px;
-  margin-right: 8px;
+  margin-bottom: 24px;
 }
 
 code {
@@ -99,21 +87,35 @@ code {
   margin: 8px;
   display: inline-block;
   max-width: calc(100% - 16px);
-  font-size: 14px;
+  font-size: 16px;
   overflow-x: scroll;
+}
+
+figcaption {
+  text-align: center;
+  font-style: italic;
+  color: #9BA5B1;
+  font-weight: 300;
+}
+
+figure {
+  margin-bottom: 24px;
 }
 
 .text_meta_date {
   margin-top: 16px;
   color: #9BA5B1;
   font-style: italic;
+  font-size: 16px;
 }
 
 .text_meta_url {
   color: #9BA5B1;
+  font-size: 16px;
 }
 
 .doc_meta {
+  padding-bottom: 8px;
   margin-bottom: 32px;
 }
 
@@ -139,63 +141,145 @@ textarea:focus, textarea:active {
 }
 
 .text_meta {
-  margin-bottom: 8px;
+  margin-bottom: 0;
 }
 
 .text-annotation {
-  background-color: rgba(255, 246, 36, 0.33);
+  background-color: rgba(255, 246, 36, 0.25);
+}
+
+.text-annotation:hover {
+  background-color: #FFE70D;
+}
+
+.text-annotation-hover {
+  background-color: #FFE70D;
 }
 
 .text-download {
   font-size: 12px;
   font-weight: bold;
-  line-height: 16px;
+  line-height: 21px;
   color: #36B9E3;
+  padding-left: 8px;
+  padding-right: 8px;
 }
 
 .text-highlight-open {
   float: left;
 }
 
+@media screen and (max-width: 480px) {
+  html, body {
+    font-size: 16px;
+    line-height: 28px;
+  }
+
+  h1 {
+    font-size: 32px;
+    line-height: 46px;
+  }
+
+  h2, h3, h4, h5, h6 {
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 18px;
+    padding-top: 16px;
+    padding-bottom: 8px;
+  }
+
+  blockquote {
+    font-size: 18px;
+    line-height: 27px;
+    margin-top: 0px;
+    margin-bottom: 27px;
+  }
+
+  p, ol, ul {
+    font-size: 16px;
+    line-height: 28px;
+    margin-bottom: 24px;
+  }
+
+  .annotationCard {
+    font-size: 16px;
+    line-height: 28px;
+    margin-bottom: 24px;
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  a {
+    font-size: 16px;
+    line-height: 28px;
+    margin-bottom: 24px;
+  }
+
+  figure {
+    margin-bottom: 24px;
+  }
+}
+.annotationMobile {
+  display: none;
+}
+
 .annotationCard {
   float: left;
-  width: 100%;
   display: flex;
   flex-direction: row;
-  margin-top: 24px;
-  margin-bottom: 24px;
+  width: 20rem;
+}
+
+.annotationProfileHolder {
+  margin-top: -16px;
 }
 
 .annotationProfile {
-  width: 24px;
-  min-width: 24px;
-  margin-right: 8px;
-  border-radius: 12px;
-  margin-top: 8px;
+  width: 32px;
+  min-width: 32px;
+  margin-left: 16px;
+  margin-right: 16px;
+  border-radius: 16px;
+  margin-top: -16px;
 }
 
 .annotationContent {
   display: flex;
   flex: 1;
   flex-direction: column;
+  margin-top: -44px;
   border-style: solid;
   border-color: #373B40;
   border-radius: 16px;
   border-width: 1px;
   margin-right: 8px;
+  max-width: calc(100% - 48px);
+}
+
+.annotationBar {
+  margin-top: 16px;
+  margin-right: 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .annotationAuthor {
   font-weight: bold;
   margin-bottom: 8px;
   margin-left: 16px;
-  margin-top: 16px;
+  font-size: 16px;
+  line-height: 24px;
 }
 
 .annotationText {
   margin-bottom: 8px;
   margin-right: 16px;
   margin-left: 16px;
+  word-wrap: break-word;
+  max-width: 100%;
+  font-size: 16px;
+  line-height: 24px;
 }
 
 .annotationTime {
@@ -204,34 +288,108 @@ textarea:focus, textarea:active {
   margin-right: 16px;
   margin-left: 16px;
   margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 24px;
 }
 
+.appAnnotation {
+  display: none;
+}
+
+@media screen and (max-width: 480px) {
+  .annotationDesktop {
+    display: none;
+  }
+
+  .annotationMobile {
+    float: left;
+    width: 100%;
+    display: block;
+  }
+
+  .annotationCard {
+    width: 100%;
+    max-width: 100%;
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
+
+  .annotationContent {
+    margin-top: 0px;
+  }
+
+  .annotationProfileHolder {
+    margin-top: 8px;
+  }
+
+  .annotationProfile {
+    width: 24px;
+    min-width: 24px;
+    margin-left: 8px;
+    margin-right: 8px;
+    border-radius: 12px;
+    margin-top: 8px;
+  }
+}
 .doc_page {
-  margin-top: 56px;
+  margin-top: 96px;
 }
 
 .doc_bar {
-  width: 100%;
-  height: 48px;
+  height: 64px;
   background-color: rgba(248, 248, 248, 0.95);
   position: fixed;
   top: 0;
+  margin-left: -32px;
+  margin-right: -32px;
+  width: calc(100% + 64px);
+}
+
+.bottom_bar {
+  height: 84px;
+  border-top: 0px solid #373B40;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 84px;
+  margin-left: -32px;
+  margin-right: -32px;
+  width: calc(100% + 64px);
+}
+
+.bottom_bar_inner {
+  margin-left: -32px;
+  margin-right: -32px;
+  width: calc(100% + 64px);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .doc_bar_icons {
-  height: 48px;
+  height: 64px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin-left: 8px;
+  margin-left: 0px;
+  margin-right: 8px;
+}
+
+.bottom_bar_icons {
+  height: 64px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 0px;
   margin-right: 8px;
 }
 
 .doc_bar_download {
   display: flex;
   flex-direction: row;
-  height: 16px;
+  height: 20px;
   border-radius: 12px;
   border-style: solid;
   border-color: #36B9E3;
@@ -250,42 +408,134 @@ svg {
   fill: #373B40;
 }
 
+.icon_logo {
+  width: 42px;
+  height: 42px;
+}
+
+.banner_logo {
+  width: 168px;
+  height: 42px;
+}
+
+@media screen and (max-width: 480px) {
+  .doc_page {
+    margin-top: 56px;
+  }
+
+  .doc_bar {
+    height: 48px;
+    margin-left: -8px;
+    margin-right: -8px;
+    width: calc(100% + 16px);
+  }
+
+  .bottom_bar {
+    height: 64px;
+    margin-left: -8px;
+    margin-right: -8px;
+    width: calc(100% + 16px);
+  }
+
+  .bottom_bar_inner {
+    margin-left: 0px;
+    margin-right: 0px;
+    width: 100%;
+  }
+
+  .doc_bar_icons {
+    height: 48px;
+    margin-left: 8px;
+    margin-right: 8px;
+  }
+
+  .bottom_bar_icons {
+    height: 48px;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  .icon_logo {
+    width: 32px;
+    height: 32px;
+  }
+
+  .banner_logo {
+    width: 128px;
+    height: 32px;
+  }
+}
 .user_card_holder {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-bottom: 16px;
-  margin-left: 8px;
+  margin-bottom: 24px;
+  margin-left: -32px;
 }
 
 .user_profile {
-  width: 36px;
-  height: 36px;
-  border-radius: 18px;
+  height: 56px;
+  margin-right: 16px;
 }
 
 .user_profile_pic {
-  width: 36px;
-  height: 36px;
-  border-radius: 18px;
+  width: 56px;
+  height: 56px;
+  border-radius: 28px;
+  margin: 0;
 }
 
 .user_card_text_top {
   margin-bottom: 0px;
+  font-size: 16px;
+  line-height: 24px;
 }
 
 .user_card_text_bottom {
   margin-bottom: 0px;
+  font-size: 16px;
+  line-height: 24px;
 }
 
+@media screen and (max-width: 480px) {
+  .user_card_holder {
+    margin-bottom: 16px;
+    margin-left: 0;
+  }
+
+  .user_profile {
+    height: 36px;
+  }
+
+  .user_profile_pic {
+    width: 36px;
+    height: 36px;
+    border-radius: 18px;
+  }
+
+  .user_card_text_top {
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .user_card_text_bottom {
+    font-size: 12px;
+    line-height: 18px;
+  }
+}
 html, body {
   font-family: "Overpass", "Roboto", sans-serif;
   background: #f8f8f8;
   color: #373B40;
 }
 
+.marginControl {
+  margin-left: 32px;
+  margin-right: 32px;
+}
+
 .page {
-  padding: 32px;
+  padding: 0;
 }
 
 figure {
@@ -304,29 +554,103 @@ picture {
 
 img {
   width: 100%;
-  margin-left: auto;
-  margin-right: auto;
   max-height: 60vh;
+  padding: 0;
+  margin-top: 32px;
+  margin-bottom: 48px;
+  margin-left: -32px;
+  margin-right: -32px;
+  width: calc(100% + 64px);
 }
 
-p > img {
-  padding: 0;
-  margin-left: -8px;
-  margin-right: -8px;
-  width: calc(100% + 16px);
+.imageCover {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: -32px;
+  margin-right: -32px;
+  width: calc(100% + 64px);
 }
 
 figure {
-  margin: 0;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 section {
   margin-bottom: 24px;
 }
 
+iframe {
+  max-width: 100%;
+}
+
+hr {
+  display: none;
+}
+
+.blacklogo {
+  fill: #373B40;
+}
+
+.whitelogo {
+  fill: #f8f8f8;
+}
+
+.AppHolder {
+  display: flex;
+  flex-direction: row;
+  width: 65rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.App {
+  width: 45rem;
+}
+
+.Sidebar {
+  width: 20rem;
+}
+
+.testBox {
+  float: left;
+  width: 100%;
+  height: 0px;
+  background-color: red;
+}
+
 @media screen and (max-width: 480px) {
+  .marginControl {
+    margin-left: 8px;
+    margin-right: 8px;
+  }
+
+  .AppHolder {
+    width: 100%;
+  }
+
+  .Sidebar {
+    display: none;
+  }
+
   .page {
     padding: 0;
+  }
+
+  .App {
+    width: 100%;
+  }
+
+  img {
+    margin-left: -8px;
+    margin-right: -8px;
+    width: calc(100% + 16px);
+  }
+
+  .imageCover {
+    margin-left: -8px;
+    margin-right: -8px;
+    width: calc(100% + 16px);
   }
 }
 

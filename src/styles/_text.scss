@@ -1,116 +1,135 @@
 $txt-alignment: left;
 
 $mobile-margin-h: 8px;
+$margin-h: 32px;
 
 $meta-margin-bottom: 32px;
 
-$header-size: 28px;
-$header-line: 40px;
+$header-size: 32px;
+$header-line: 46px;
 $header-margin-top: 0;
 $header-margin-bottom: 8px;
 
 $subheader-size: 18px;
 $subheader-line: 24px;
 $subheader-margin-top: 0px;
-$subheader-margin-bottom: 14px;
+$subheader-margin-bottom: 18px;
 
-$body-size: 14px;
-$body-line: 21px;
-$body-margin-bottom: 14px;
+$body-size: 16px;
+$body-line: 28px;
+$body-margin-bottom: 24px;
+
+$detail-size: 12px;
+$detail-line: 18px;
+$detail-margin-bottom: 18px;
 
 
+$subheader-line-wide: 27px;
+$subheader-margin-bottom-wide: 27px;
+
+
+$d-header-size: 46px;
+$d-header-line: 56px;
+$d-header-margin-top: 0;
+$d-header-margin-bottom: 12px;
+
+$d-subheader-size: 24px;
+$d-subheader-line: 36px;
+$d-subheader-margin-top: 0px;
+$d-subheader-margin-bottom: 24px;
+
+$d-subheader-margin-top-wide: 12px;
+$d-subheader-margin-bottom-wide: 36px;
+
+$d-body-size: 18px;
+$d-body-line: 30px;
+$d-body-margin-bottom: 24px;
+
+$d-detail-size: 16px;
+$d-detail-line: 24px;
+$d-detail-margin-bottom: 18px;
+
+
+html, body {
+    font-size: $d-body-size;
+    line-height: $d-body-line;
+}
 
 h1, h2, h3, h4 {
     text-align: $txt-alignment;
 }
 
+p, ol, ul, a {
+    font-size: $d-body-size;
+    line-height: $d-body-line;
+}
+
 h1 {
-    font-size: $header-size;
-    line-height: $header-line;
+    font-size: $d-header-size;
+    line-height: $d-header-line;
     margin-block-end: 0;
     margin-block-start: 0;
     margin-top: $header-margin-top;
-    margin-left: $mobile-margin-h;
-    margin-right: $mobile-margin-h;
     font-weight: 700;
 
     font-family: 'Roboto Condensed';
 }
 
-h2 {
-    font-size: $subheader-size;
-    line-height: $subheader-line;
+h2, h3, h4, h5, h6 {
+    font-size: $d-subheader-size;
+    line-height: $d-subheader-line;
     margin-block-end: 0;
     margin-block-start: 0;
-    margin-top: $subheader-margin-top;
-    margin-bottom: $subheader-margin-bottom;
-    margin-left: $mobile-margin-h;
-    margin-right: $mobile-margin-h;
+    margin-top: $d-subheader-margin-top;
+    margin-bottom: $d-subheader-margin-bottom;
+    padding-top: 24px;
 }
 
-h3, h4, h5, h6 {
-    font-size: $subheader-size;
-    line-height: $subheader-line;
+blockquote {
+    font-size: $d-subheader-size;
+    line-height: $d-subheader-line;
     margin-block-end: 0;
     margin-block-start: 0;
-    margin-top: $subheader-margin-top;
-    margin-bottom: $subheader-margin-bottom;
-    margin-left: $mobile-margin-h;
-    margin-right: $mobile-margin-h;
+    padding-top: $d-subheader-margin-top-wide;
+    margin-bottom: $d-subheader-margin-bottom-wide;
+    font-style: italic;
+    color: $color-grey;
 }
 
 
 p {
     margin: 0;
     text-align: left;
-    font-size: $body-size;
-    line-height: $body-line;
-    margin-left: $mobile-margin-h;
-    margin-right: $mobile-margin-h;
-    margin-bottom: $body-margin-bottom;
+    margin-bottom: $d-body-margin-bottom;
 }
 
 ol {
     margin: 0;
     text-align: left;
-    font-size: $body-size;
-    line-height: $body-line;
-    margin-left: $mobile-margin-h;
-    margin-right: $mobile-margin-h;
 }
 
 ul {
     margin: 0;
     text-align: left;
-    font-size: $body-size;
-    line-height: $body-line;
-    margin-left: $mobile-margin-h;
-    margin-right: $mobile-margin-h;
     padding-left: 0;
     padding-inline-start: 24px;
 }
 
 li {
-    margin-bottom: $body-margin-bottom;
+    margin-bottom: $d-body-margin-bottom;
 }
 
 a {
     color: $color-blu;
     text-decoration: none;
     font-weight: 600;
-
-
     margin: 0;
     text-align: left;
-    font-size: $body-size;
-    line-height: $body-line;
-    margin-bottom: $body-margin-bottom;
+    margin-bottom: $d-body-margin-bottom;
     
 }
 
 pre {
-    margin-left: $mobile-margin-h;
-    margin-right: $mobile-margin-h;
 }
 
 code {
@@ -122,38 +141,119 @@ code {
     overflow-x: scroll;
 }
 
+figcaption {
+    text-align: center;
+    font-style: italic;
+    color: $color-grey;
+    font-weight: 300;
+}
+
+figure {
+    margin-bottom: $d-body-margin-bottom;
+}
+
 .text_meta_date {
     margin-top: 16px;
     color: $color-grey;
     font-style: italic;
+    font-size: $body-size;
 }
 
 .text_meta_url {
     color: $color-grey;
+    font-size: $body-size;
 }
 
 .doc_meta {
+    padding-bottom: $header-margin-bottom;
     margin-bottom: $meta-margin-bottom;
 }
 
 .text_meta {
-    margin-bottom: $header-margin-bottom;
+    margin-bottom: 0;
 }
 
 .text-annotation {
     background-color: $color-highlight;
+
+}
+.text-annotation:hover {
+    background-color: $color-highlight-hover;
+}
+
+.text-annotation-hover {
+    background-color: $color-highlight-hover;
 }
 
 .text-download {
     font-size: 12px;
     font-weight: bold;
-    line-height: 16px;
+    line-height: 21px;
     color: $color-blu;
+    padding-left: $mobile-margin-h;
+    padding-right: $mobile-margin-h;
 }
 
 .text-highlight-open {
     float: left;
 }
+
+
+
 @media screen and (max-width: 480px) {
 
+    html, body {
+        font-size: $body-size;
+        line-height: $body-line;
+    }
+
+    h1 {
+        font-size: $header-size;
+        line-height: $header-line;
+    }
+
+    h2, h3, h4, h5, h6 {
+        font-size: $subheader-size;
+        line-height: $subheader-line;
+        margin-bottom: $subheader-margin-bottom;
+        padding-top: 16px;
+        padding-bottom: 8px;
+    }
+
+    blockquote {
+        font-size: $subheader-size;
+        line-height: $subheader-line-wide;
+        margin-top: $subheader-margin-top;
+        margin-bottom: $subheader-margin-bottom-wide;
+    }
+
+    p, ol, ul {
+        font-size: $body-size;
+        line-height: $body-line;
+        margin-bottom: $body-margin-bottom;
+    }
+
+    .annotationCard {
+        font-size: $body-size;
+        line-height: $body-line;
+        margin-bottom: $body-margin-bottom;
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    a {
+        font-size: $body-size;
+        line-height: $body-line;
+        margin-bottom: $body-margin-bottom;
+    }
+
+    pre {
+    }
+
+    figcaption {
+    }
+
+    figure {
+        margin-bottom: $body-margin-bottom;
+    }
 }

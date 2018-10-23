@@ -8,14 +8,20 @@
 @import "styles/navbars";
 @import "styles/userCard";
 
+
 html, body {
     font-family: 'Overpass', 'Roboto', sans-serif;
     background: $color-bg;
     color: $color-blk;
 }
 
+.marginControl {
+    margin-left: $margin-h;
+    margin-right: $margin-h;
+}
+
 .page {
-    padding: 32px;
+    padding: 0;
 }
 
 figure {
@@ -34,34 +40,102 @@ picture {
 
 img {
     width: 100%;
-    margin-left: auto;
-    margin-right: auto;
     max-height: 60vh;
-}
-
-p > img {
     padding: 0;
-    margin-left: -8px;
-    margin-right: -8px;
-    width: calc(100% + 16px);
+    margin-top: 32px;
+    margin-bottom: 48px;
+    margin-left: $negative-margin;
+    margin-right: $negative-margin;
+    width: calc(100% + 64px);
 }
 
 .imageCover {
-    
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: $negative-margin;
+    margin-right: $negative-margin;
+    width: calc(100% + 64px);   
 }
 
 figure {
-    margin: 0;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 section {
     margin-bottom: 24px;
 }
 
+iframe {
+    max-width: 100%;
+}
 
+hr {
+    display: none;
+}
+
+.blacklogo {
+    fill: $color-blk;
+}
+
+.whitelogo {
+    fill: #f8f8f8;
+}
+
+.AppHolder {
+    display: flex;
+    flex-direction: row;
+    width: 65rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.App {
+    width: 45rem;
+}
+
+.Sidebar {
+    width: 20rem;
+}
+
+.testBox {
+    float: left;
+    width: 100%;
+    height: 0px;
+    background-color: red;
+}
 
 @media screen and (max-width: 480px) {
+    .marginControl {
+        margin-left: $mobile-margin-h;
+        margin-right: $mobile-margin-h;
+    }
+
+    .AppHolder {
+        width: 100%;
+    }
+
+    .Sidebar {
+        display: none;
+    }
+
     .page {
         padding: 0;
+    }
+
+    .App {
+        width: 100%;
+    }
+
+    img {
+        margin-left: -8px;
+        margin-right: -8px;
+        width: calc(100% + 16px);
+    }
+    
+    .imageCover {
+        margin-left: -8px;
+        margin-right: -8px;
+        width: calc(100% + 16px);   
     }
 }
