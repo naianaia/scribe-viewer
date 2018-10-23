@@ -235,11 +235,18 @@ figure {
   max-width: calc(100% - 48px);
 }
 
+.annotationBar {
+  margin-top: 16px;
+  margin-right: 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .annotationAuthor {
   font-weight: bold;
   margin-bottom: 8px;
   margin-left: 16px;
-  margin-top: 16px;
   font-size: 16px;
   line-height: 24px;
 }
@@ -274,6 +281,8 @@ figure {
   }
 
   .annotationMobile {
+    float: left;
+    width: 100%;
     display: block;
   }
 

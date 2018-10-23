@@ -1,12 +1,6 @@
 import _ from 'lodash';
-import React, { Component } from 'react';
-import Parser from 'html-react-parser';
+import React from 'react';
 import '../App.css';
-import { connect } from 'react-redux';
-import $ from 'jquery'; 
-import * as actions from '../redux/actions';
-
-import gen from '../assets/generalIcons.json';
 
 import icons from '../assets/icons.json';
 

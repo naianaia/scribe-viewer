@@ -44,6 +44,7 @@ class ArticleView extends Component {
             annotater: "",
             annotater_profile: ""
         }
+
     }
 
     //fetch some data from Firebase
@@ -51,8 +52,6 @@ class ArticleView extends Component {
         this.props.dataFetch();
         const { userId, authorId, onChangeUserId, onChangeAuthorId } = this.props;
         this.props.setQuery(userId, authorId);
-        console.log(userId);
-        console.log(authorId);
         this.setState({ ...this.state, annotater: "Ben Mann", annotater_profile: "https://avatars2.githubusercontent.com/u/1021104?s=400&v=4"});
     }
 
@@ -81,7 +80,7 @@ class ArticleView extends Component {
         var time = "1 hour ago";
 
         return (
-            <div class='annotationCard' onClick={this.toggleCard.bind(this, spanId)}>
+            <div class='annotationCard' onClick={this.toggleCard(spanId)}>
                 <div class='annotationProfile'>
                     <img class='annotationProfile' src={profile} />
                 </div>
@@ -124,11 +123,9 @@ class ArticleView extends Component {
                             replace: (domNode) => {
                                 if (domNode.name === 'span') {
                                     if(domNode.attribs.class === 'text-annotation') {
-                                        console.log(domNode);
                                         //extract span content and metadata from highlight
                                         var spanClass = domNode.attribs.class;
                                         var spanId = domNode.attribs['data-id'];
-                                        console.log(spanId);
                                         var spanContent = domNode.children[0].data;
                                         //shows the highlight and annotation card, depending on state boolean 
                                         if (this.state.annotations[spanId]) {
@@ -153,6 +150,7 @@ class ArticleView extends Component {
                                                                     name="anonymous"
                                                                     time="1 hour ago"
                                                                     spanId={spanId}
+                                                                    closeFunc={this.toggleCard.bind(this, spanId)}
                                                                 />
                                                             </div>
                                                         }
@@ -165,6 +163,7 @@ class ArticleView extends Component {
                                                             name="anonymous"
                                                             time="1 hour ago"
                                                             spanId={spanId}
+                                                            closeFunc={this.toggleCard.bind(this, spanId)}
                                                         />
                                                     </div>
                                                 </>
@@ -176,9 +175,7 @@ class ArticleView extends Component {
                                     }
                                 }
                                 else if (domNode.name === 'style') {
-                                    console.log("style");
                                     if (domNode.attribs.class === 'scribe-inject') {
-                                        console.log("style scribe");
                                         return <span />;
                                     }
                                 }
@@ -201,12 +198,12 @@ const mapStateToProps = state => {
 
 
     //const userData = state.pageData[state.queryData.uid];
-    console.log(state.pageData);
+    //console.log(state.pageData);
     if (state.pageData) {
         const { [state.queryData.uid]: userData } = state.pageData;
-        console.log(userData);
+        //console.log(userData);
         const { [state.queryData.aid]: articleData } = userData.items;
-        console.log(articleData);
+        //console.log(articleData);
         
         html = articleData.article.content;
         title = articleData.article.title;

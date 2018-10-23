@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../redux/actions';
 import '../App.css';
-
+import icons from '../assets/icons.json';
 
 class AnnotationCard extends Component {
     constructor () {
@@ -21,18 +21,18 @@ class AnnotationCard extends Component {
         var { [this.props.spanId]: annotationObject } = this.props.annotations;
         var annotationText = annotationObject.text;
         this.setState({ annotationText: annotationText, spanId: this.props.spanId });
-        console.log(this.props);
+        //console.log(this.props);
     }
 
     bindClassToHighlight = () => {
-        console.log("ENTER");
-        console.log(this.state.spanId);
+        //console.log("ENTER");
+        //console.log(this.state.spanId);
         this.props.setHover(this.state.spanId);
     }
 
     unbindClassToHighlight = () => {
-        console.log("LEAVE");
-        console.log(this.state.spanId);
+        //console.log("LEAVE");
+        //console.log(this.state.spanId);
         this.props.resetHover();
     }
 
@@ -48,8 +48,15 @@ class AnnotationCard extends Component {
                     <img class='annotationProfile' src={this.props.profile} />
                 </span>
                 <span class='annotationContent'>
-                    <span class='annotationAuthor'>
-                        {this.props.name}
+                    <span class='annotationBar'>
+                        <span class='annotationAuthor'>
+                            {this.props.name}
+                        </span>
+                        <span class='annotationClose' onClick={this.props.closeFunc}>  
+                            <svg class="icon_close" viewBox="0 0 24 24" width="20px" height="20px">
+                                <path d={icons.close.svg}/>
+                            </svg>
+                        </span>
                     </span>
                     <span class='annotationText'>
                         {this.state.annotationText}
@@ -69,16 +76,16 @@ const mapStateToProps = state => {
     
     
     const { [state.queryData.uid]: userData } = state.pageData;
-    console.log(userData);
+    //console.log(userData);
     const { [state.queryData.aid]: articleData } = userData.items;
-    console.log(articleData);
+    //console.log(articleData);
     
     //const { [this.state.spanId]: annotationObject } = articleData.annotations
     //annotationText = annotationObject.text;
     
     const annotations = articleData.annotations;
 
-    console.log(annotations);
+    //console.log(annotations);
     return { annotations }
 };
 
