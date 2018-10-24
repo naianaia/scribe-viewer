@@ -26,6 +26,21 @@ export const dataFetchStore = (userId, articleId) => {
     }
 };
 
+export const dataFetchAnnotations = (userId, articleId) => {
+    console.log("annotation fetch start");
+    return (dispatch) => {
+        var db = firebase.firestore();
+        db.collection("users").doc(userId).collection("items").doc(articleId).collection("annotations").onSnapshot((snapshot) => {
+            var annotationList = {};
+            snapshot.forEach((doc) => {
+                annotationList[doc.id] = doc.data();
+            });
+            console.log(annotationList);
+            dispatch({ type: 'get_annotations', payload: annotationList });
+        });
+    }
+};
+
 
 
 export const setQuery = (uid, aid) => {

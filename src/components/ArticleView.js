@@ -54,6 +54,7 @@ class ArticleView extends Component {
         const { userId, articleId, onChangeUserId, onChangeAuthorId } = this.props;
         this.props.setQuery(userId, articleId);
         this.props.dataFetchStore(userId, articleId);
+        this.props.dataFetchAnnotations(userId, articleId);
         this.setState({ ...this.state, annotater: "Ben Mann", annotater_profile: "https://avatars2.githubusercontent.com/u/1021104?s=400&v=4"});
     }
 
@@ -126,6 +127,7 @@ class ArticleView extends Component {
                                 if (domNode.name === 'span') {
                                     if(domNode.attribs.class === 'text-annotation') {
                                         //extract span content and metadata from highlight
+                                        console.log(domNode);
                                         var spanClass = domNode.attribs.class;
                                         var spanId = domNode.attribs['data-id'];
                                         var spanContent = domNode.children[0].data;

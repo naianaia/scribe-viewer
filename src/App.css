@@ -227,6 +227,7 @@ figure {
   flex: 1;
   flex-direction: column;
   margin-top: -44px;
+  background-color: #f8f8f8;
   border-style: solid;
   border-color: #373B40;
   border-radius: 16px;

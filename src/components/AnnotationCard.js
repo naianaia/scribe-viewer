@@ -72,18 +72,7 @@ class AnnotationCard extends Component {
 
 const mapStateToProps = state => {
 
-    var annotations = '';
-    
-    
-    const { [state.queryData.uid]: userData } = state.pageData;
-    //console.log(userData);
-    const { [state.queryData.aid]: articleData } = userData.items;
-    //console.log(articleData);
-    
-    //const { [this.state.spanId]: annotationObject } = articleData.annotations
-    //annotationText = annotationObject.text;
-    
-    const annotations = articleData.annotations;
+    const annotations = state.annotationListData;
 
     //console.log(annotations);
     return { annotations }
