@@ -611,6 +611,29 @@ hr {
   margin-right: auto;
 }
 
+.contentFrame {
+  position: relative;
+  width: 65rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.appFrame {
+  position: absolute;
+  width: 65rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.loadingFrame {
+  width: 100%;
+  margin-left: -64px;
+  margin-right: -64px;
+  height: 100vh;
+  position: absolute;
+  background: #f8f8f8;
+}
+
 .App {
   width: 45rem;
 }

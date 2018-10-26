@@ -17,10 +17,12 @@ export const dataFetch = () => {
 export const dataFetchStore = (userId, articleId) => {
     console.log("store fetch start");
     return (dispatch) => {
+        dispatch({ type: 'loading_data', payload: null });
         var db = firebase.firestore();
         db.collection("users").doc(userId).collection("items").doc(articleId).onSnapshot((snapshot) => {
             if (snapshot.data()) {
                 dispatch({ type: 'get_data', payload: snapshot.data() });
+                dispatch({ type: 'loaded_data', payload: null });
             }
         });
     }
@@ -63,3 +65,14 @@ export const resetHover = () => {
         payload: {}
     }
 } 
+
+
+export const getAnnotator = (authorId) => {
+    console.log("annotation author fetch start");
+    return (dispatch) => {
+        var db = firebase.firestore();
+        db.collection("users").doc(authorId).onSnapshot((snapshot) => {
+            dispatch({ type: 'get_annotator', payload: { name: snapshot.data().name, avatar: snapshot.data().avatar } });
+        });
+    }
+}

@@ -211,7 +211,6 @@ const mapStateToProps = state => {
         const articleData = state.pageData;
 
         html = articleData.article.content;
-        console.log(html);
         title = articleData.article.title;
         image = articleData.article.image;
         url = (new URL(articleData.url)).hostname;

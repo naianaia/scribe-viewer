@@ -12,15 +12,19 @@ class AnnotationCard extends Component {
             profile: "",
             name: "",
             annotationText: "",
-            spanId: ""
+            spanId: "",
+            authorId: "",
+            created: ""
         }
     }
 
     componentWillMount() {
         //wire up state annotation to annotation text and set it to state
         var { [this.props.spanId]: annotationObject } = this.props.annotations;
+        console.log(annotationObject);
         var annotationText = annotationObject.text;
-        this.setState({ annotationText: annotationText, spanId: this.props.spanId });
+        this.props.getAnnotator(annotationObject.authorId);
+        this.setState({ annotationText: annotationText, spanId: this.props.spanId, authorId:annotationObject.authorId, created: annotationObject.created.toString() });
         //console.log(this.props);
     }
 
@@ -45,12 +49,12 @@ class AnnotationCard extends Component {
                 onMouseLeave={this.unbindClassToHighlight}
             >
                 <span class='annotationProfileHolder'>
-                    <img class='annotationProfile' src={this.props.profile} />
+                    <img class='annotationProfile' src={this.props.annotatorAvatar} />
                 </span>
                 <span class='annotationContent'>
                     <span class='annotationBar'>
                         <span class='annotationAuthor'>
-                            {this.props.name}
+                            {this.props.annotatorName}
                         </span>
                         <span class='annotationClose' onClick={this.props.closeFunc}>  
                             <svg class="icon_close" viewBox="0 0 24 24" width="20px" height="20px">
@@ -62,7 +66,7 @@ class AnnotationCard extends Component {
                         {this.state.annotationText}
                     </span>
                     <span class='annotationTime'>
-                        {this.props.time}
+                        {this.state.created}
                     </span>
                 </span>
             </span>
@@ -73,9 +77,12 @@ class AnnotationCard extends Component {
 const mapStateToProps = state => {
 
     const annotations = state.annotationListData;
+    const annotator = state.annotator;
 
+    const annotatorName = annotator.name;
+    const annotatorAvatar = annotator.avatar;
     //console.log(annotations);
-    return { annotations }
+    return { annotations , annotatorName, annotatorAvatar };
 };
 
 export default connect(mapStateToProps, actions)(AnnotationCard);

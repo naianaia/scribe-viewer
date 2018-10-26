@@ -7,6 +7,7 @@ import reducers from './redux/reducers';
 import './App.css';
 import ArticleView from './components/ArticleView';
 import BottomBar from './components/BottomBar';
+import ContentFrame from './components/ContentFrame';
 
 class App extends Component {
 
@@ -33,13 +34,7 @@ class App extends Component {
     return (
       <div class="marginControl">
         <Provider store={createStore(reducers, {}, applyMiddleware(ReduxThunk))}>
-          <div className="AppHolder">
-            <div className="App">
-              <ArticleView />
-            </div>
-            <div className="Sidebar">
-            </div>
-          </div>
+          <ContentFrame />
         </Provider>
         <BottomBar />
       </div>
