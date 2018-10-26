@@ -80,11 +80,32 @@
     display: none;
 }
 
+::placeholder {
+    color: #9BA5B1;
+}
+
+textarea:focus, textarea:active {
+    outline: none;
+}
+
+.takeaway {
+    border-style: solid;
+    border-color: #373B40;
+    border-radius: 16px;
+    padding: 16px;
+    font-size: 16px;
+    border-width: 1px;
+    margin: 8px;
+    width: calc(100% - 16px);
+    height: 96px;
+    background: #f8f8f8;
+}
+
 @media screen and (max-width: 480px) {
     .annotationDesktop {
         display: none;
     }
-    
+
     .annotationMobile {
         float: left;
         width: 100%;
@@ -96,7 +117,7 @@
         max-width: 100%;
         margin-top: 24px;
         margin-bottom: 24px;
-        
+
     }
 
     .annotationContent {
