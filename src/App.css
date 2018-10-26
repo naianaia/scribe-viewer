@@ -48,7 +48,8 @@ blockquote {
   padding-top: 12px;
   margin-bottom: 36px;
   font-style: italic;
-  color: #9BA5B1;
+  margin-inline-start: 16px;
+  margin-inline-end: 16px;
 }
 
 p {
@@ -96,6 +97,7 @@ figcaption {
   font-style: italic;
   color: #9BA5B1;
   font-weight: 300;
+  margin-bottom: 48px;
 }
 
 figure {
@@ -534,13 +536,17 @@ picture {
 
 img {
   width: 100%;
-  max-height: 60vh;
+  max-height: 75vh;
   padding: 0;
   margin-top: 32px;
   margin-bottom: 48px;
   margin-left: -32px;
   margin-right: -32px;
   width: calc(100% + 64px);
+}
+
+p > img {
+  margin-bottom: 0px;
 }
 
 .imageCover {

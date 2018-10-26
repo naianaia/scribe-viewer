@@ -93,7 +93,8 @@ blockquote {
     padding-top: $d-subheader-margin-top-wide;
     margin-bottom: $d-subheader-margin-bottom-wide;
     font-style: italic;
-    color: $color-grey;
+    margin-inline-start: 16px;
+    margin-inline-end: 16px;
 }
 
 
@@ -146,6 +147,7 @@ figcaption {
     font-style: italic;
     color: $color-grey;
     font-weight: 300;
+    margin-bottom: 48px;
 }
 
 figure {

@@ -117,7 +117,6 @@ class ArticleView extends Component {
 
         return (
             <div>
-                <DocumentBar />
                 <div class='doc_page'>
                     <UserCard profile={this.state.annotater_profile} name={this.state.annotater} />
 
