@@ -36,7 +36,6 @@ class App extends Component {
         <Provider store={createStore(reducers, {}, applyMiddleware(ReduxThunk))}>
           <ContentFrame />
         </Provider>
-        <BottomBar />
       </div>
     );
   }

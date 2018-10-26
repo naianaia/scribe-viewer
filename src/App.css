@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto");
 @import url("https://fonts.googleapis.com/css?family=Roboto+Condensed");
 @import url("https://fonts.googleapis.com/css?family=Overpass");
+@import url("https://fonts.googleapis.com/css?family=Arvo");
 @font-face {
   font-family: "San Francisco";
   font-weight: 400;
@@ -26,8 +27,8 @@ h1 {
   margin-block-end: 0;
   margin-block-start: 0;
   margin-top: 0;
-  font-weight: 700;
-  font-family: "Roboto Condensed";
+  font-weight: 600;
+  font-family: "Arvo";
 }
 
 h2, h3, h4, h5, h6 {
@@ -620,6 +621,8 @@ hr {
 
 .appFrame {
   position: absolute;
+  display: flex;
+  flex-direction: column;
   width: 65rem;
   margin-left: auto;
   margin-right: auto;
@@ -677,6 +680,14 @@ textarea:focus, textarea:active {
   }
 
   .AppHolder {
+    width: 100%;
+  }
+
+  .contentFrame {
+    width: 100%;
+  }
+
+  .appFrame {
     width: 100%;
   }
 
