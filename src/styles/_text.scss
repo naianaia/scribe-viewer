@@ -1,12 +1,12 @@
 $txt-alignment: left;
 
-$mobile-margin-h: 8px;
+$mobile-margin-h: 16px;
 $margin-h: 32px;
 
 $meta-margin-bottom: 32px;
 
-$header-size: 32px;
-$header-line: 46px;
+$header-size: 36px;
+$header-line: 48px;
 $header-margin-top: 0;
 $header-margin-bottom: 8px;
 
@@ -28,7 +28,7 @@ $subheader-line-wide: 27px;
 $subheader-margin-bottom-wide: 27px;
 
 
-$d-header-size: 46px;
+$d-header-size: 48px;
 $d-header-line: 56px;
 $d-header-margin-top: 0;
 $d-header-margin-bottom: 12px;
@@ -41,8 +41,8 @@ $d-subheader-margin-bottom: 24px;
 $d-subheader-margin-top-wide: 12px;
 $d-subheader-margin-bottom-wide: 36px;
 
-$d-body-size: 18px;
-$d-body-line: 30px;
+$d-body-size: 20px;
+$d-body-line: 34px;
 $d-body-margin-bottom: 24px;
 
 $d-detail-size: 16px;
@@ -72,7 +72,7 @@ h1 {
     margin-top: $header-margin-top;
     font-weight: 600;
 
-    font-family: 'Arvo';
+    font-family: 'Noe Display';
 }
 
 h2, h3, h4, h5, h6 {
@@ -137,7 +137,7 @@ code {
     color: $color-grey;
     margin: 8px;
     display: inline-block; 
-    max-width: calc(100% - 16px);
+    max-width: calc(100% - 32px);
     font-size: $body-size;
     overflow-x: scroll;
 }

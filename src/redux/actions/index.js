@@ -19,10 +19,18 @@ export const dataFetchStore = (userId, articleId) => {
     return (dispatch) => {
         dispatch({ type: 'loading_data', payload: null });
         var db = firebase.firestore();
-        db.collection("users").doc(userId).collection("items").doc(articleId).onSnapshot((snapshot) => {
-            if (snapshot.data()) {
-                dispatch({ type: 'get_data', payload: snapshot.data() });
-                dispatch({ type: 'loaded_data', payload: null });
+        db.collection("users").doc(userId).onSnapshot((snapshotUser) => {
+            if (snapshotUser.data()) {
+                db.collection("users").doc(userId).collection("items").doc(articleId).onSnapshot((snapshot) => {
+                    if (snapshot.data()) {
+                        dispatch({ type: 'get_data', payload: { 
+                            page: snapshot.data(), 
+                            userName: snapshotUser.data().name, 
+                            userAvatar: snapshotUser.data().avatar 
+                        } });
+                        dispatch({ type: 'loaded_data', payload: null });
+                    }
+                });
             }
         });
     }

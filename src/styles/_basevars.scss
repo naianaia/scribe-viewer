@@ -4,9 +4,21 @@
     src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
 }
 
-$mobile-margin-h: 8px;
+@font-face {
+    font-family: "Noe Display";
+    src: url(./assets/fonts/noe/noe-display-regular.woff);
+}
+
+@font-face {
+    font-family: "Noe Display";
+    src: url(./assets/fonts/noe/noe-display-bold.woff);
+    font-weight: bold;
+}
+
+
+$mobile-margin-h: 16px;
 $margin-h: 32px;
-$negative-mobile-margin: -8px;
+$negative-mobile-margin: -16px;
 $negative-margin: -32px;
 $double-margin: 64px;
 

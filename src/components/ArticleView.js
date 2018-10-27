@@ -202,13 +202,13 @@ const mapStateToProps = state => {
 
     //const userData = state.pageData[state.queryData.uid];
     //console.log(state.pageData);
-    if (state.pageData) {
+    if (state.pageData.page) {
         //const { [state.queryData.uid]: userData } = state.pageData;
         //console.log(userData);
         //const { [state.queryData.aid]: articleData } = userData.items;
         //console.log(articleData);
         
-        const articleData = state.pageData;
+        const articleData = state.pageData.page;
 
         html = articleData.article.content;
         title = articleData.article.title;
