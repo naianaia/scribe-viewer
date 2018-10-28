@@ -28,8 +28,8 @@ $subheader-line-wide: 27px;
 $subheader-margin-bottom-wide: 27px;
 
 
-$d-header-size: 48px;
-$d-header-line: 56px;
+$d-header-size: 52px;
+$d-header-line: 64px;
 $d-header-margin-top: 0;
 $d-header-margin-bottom: 12px;
 
@@ -72,7 +72,7 @@ h1 {
     margin-top: $header-margin-top;
     font-weight: 600;
 
-    font-family: 'Noe Display';
+    font-family: 'Sabon';
 }
 
 h2, h3, h4, h5, h6 {
@@ -257,5 +257,11 @@ figure {
 
     figure {
         margin-bottom: $body-margin-bottom;
+    }
+
+    .text_meta_url {
+        font-size: $detail-size;
+        line-height: $detail-line;
+        margin-top: 4px;
     }
 }

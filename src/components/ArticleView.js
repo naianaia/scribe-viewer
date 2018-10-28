@@ -129,9 +129,13 @@ class ArticleView extends Component {
                                         console.log(domNode);
                                         var spanClass = domNode.attribs.class;
                                         var spanId = domNode.attribs['data-id'];
+                                        var spanCount = domNode.attribs['data-spancount'];
+                                        var spanTotal = domNode.attribs['data-spantotal'];
+                                        console.log(spanCount);
+                                        console.log(spanTotal);
                                         var spanContent = domNode.children[0].data;
                                         //shows the highlight and annotation card, depending on state boolean 
-                                        if (this.state.annotations[spanId]) {
+                                        if (this.state.annotations[spanId] && spanCount == spanTotal) {
                                             return (
                                                 <>
                                                     <FloatAnchor
