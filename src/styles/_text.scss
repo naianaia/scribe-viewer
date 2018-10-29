@@ -70,9 +70,9 @@ h1 {
     margin-block-end: 0;
     margin-block-start: 0;
     margin-top: $header-margin-top;
-    font-weight: 600;
-
-    font-family: 'Sabon';
+    font-weight: 900;
+    font-style: normal;
+    font-family: linotype-sabon;
 }
 
 h2, h3, h4, h5, h6 {
@@ -121,13 +121,34 @@ li {
 }
 
 a {
-    color: $color-blu;
+    position: relative;
+    color: $color-blk;
     text-decoration: none;
-    font-weight: 600;
     margin: 0;
     text-align: left;
     margin-bottom: $d-body-margin-bottom;
+    transition: color .3s;
     
+}
+
+a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    display: inline-block;
+    height: 1em;
+    width: 100%;
+    border-bottom: 2px solid $color-blk;
+    margin-top: 8px;
+    transition: border-bottom .3s;
+}
+
+a:hover {
+    color: $color-blu;
+}
+
+a:hover::after {
+    border-bottom: 2px solid $color-blu;
 }
 
 pre {
@@ -157,7 +178,6 @@ figure {
 .text_meta_date {
     margin-top: 16px;
     color: $color-grey;
-    font-style: italic;
     font-size: $body-size;
 }
 
@@ -257,6 +277,11 @@ figure {
 
     figure {
         margin-bottom: $body-margin-bottom;
+    }
+
+    .text_meta_date {
+        font-size: $detail-size;
+        line-height: $detail-line;
     }
 
     .text_meta_url {

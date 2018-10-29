@@ -3,6 +3,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
 @import url('https://fonts.googleapis.com/css?family=Overpass');
 @import url('https://fonts.googleapis.com/css?family=Arvo');
+@import url("https://use.typekit.net/tws3ibn.css");
 @import "styles/basevars";
 @import "styles/text";
 @import "styles/annotation";
@@ -11,7 +12,7 @@
 
 
 html, body {
-    font-family: 'Roboto', 'Overpass', 'Roboto', sans-serif;
+    font-family: 'Roboto', sans-serif;
     background: $color-bg;
     color: $color-blk;
 }
@@ -40,14 +41,15 @@ picture {
 }
 
 img {
-    width: 100%;
     max-height: 75vh;
+    max-width: calc(100% + 64px);
+    height: auto;
+    width:auto;
     padding: 0;
     margin-top: 32px;
     margin-bottom: 48px;
     margin-left: $negative-margin;
     margin-right: $negative-margin;
-    width: calc(100% + 64px);
 }
 
 p > img {
