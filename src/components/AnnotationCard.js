@@ -24,7 +24,7 @@ class AnnotationCard extends Component {
     console.log(annotationObject);
     var annotationText = annotationObject.text;
     this.props.getAnnotator(annotationObject.authorId);
-    this.setState({ annotationText: annotationText, spanId: this.props.spanId, authorId:annotationObject.authorId, created: annotationObject.created.toDate().toLocaleDateString() });
+    this.setState({ annotationText: annotationText, spanId: this.props.spanId, authorId:annotationObject.authorId, created: annotationObject.created.toDate().toLocaleString() });
     //console.log(this.props);
   }
 
