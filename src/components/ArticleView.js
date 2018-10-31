@@ -80,6 +80,11 @@ class ArticleView extends Component {
   }
 
   render () {
+    if (!this.props.userId || !this.props.articleId) {
+      return (
+        <h1>Please specify an author and article in the URL</h1>
+      )
+    }
 
     return (
       <div>
