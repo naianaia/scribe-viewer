@@ -105,36 +105,36 @@ class ArticleView extends Component {
                      //shows the highlight and annotation card, depending on state boolean
                      if (this.state.annotations[spanId] && spanCount === spanTotal) {
                        return (
-                         <>
-                         <FloatAnchor
-                           options={{
-                             position:'right',
-                             vAlign:'top',
-                             hAlign: 'left',
-                             forcePosition: true,
-                             forceHAlign: true,
-                             forceVAlign: true,
-                             leftBuffer:48}}s
-                           anchor={
-                             <div className="testBox"></div>
-                           }
-                           float={
-                             <div className="annotationDesktop">
-                               <AnnotationCard spanId={spanId}
-                                               closeFunc={this.toggleCard.bind(this, spanId)}
-                               />
-                             </div>
-                           }
+                         <span>
+                           <FloatAnchor
+                             options={{
+                               position:'right',
+                               vAlign:'top',
+                               hAlign: 'left',
+                               forcePosition: true,
+                               forceHAlign: true,
+                               forceVAlign: true,
+                               leftBuffer:48}}s
+                             anchor={
+                               <span className="testBox"></span>
+                             }
+                             float={
+                               <span className="annotationDesktop">
+                                 <AnnotationCard spanId={spanId}
+                                                        closeFunc={this.toggleCard.bind(this, spanId)}
+                                 />
+                               </span>
+                             }
 
-                         />
-                         <span className={spanClass + ((this.props.hoverId === spanId) ? ' text-annotation-hover' : '')} id={spanId} onClick={this.toggleCard.bind(this, spanId) }>{spanContent}</span>
-                         <div className="annotationMobile">
-                           <AnnotationCard
-                             spanId={spanId}
-                             closeFunc={this.toggleCard.bind(this, spanId)}
                            />
-                         </div>
-                         </>
+                           <span className={spanClass + ((this.props.hoverId === spanId) ? ' text-annotation-hover' : '')} id={spanId} onClick={this.toggleCard.bind(this, spanId) }>{spanContent}</span>
+                           <span className="annotationMobile">
+                             <AnnotationCard
+                               spanId={spanId}
+                               closeFunc={this.toggleCard.bind(this, spanId)}
+                             />
+                           </span>
+                         </span>
                        )
                      }
                      else {
