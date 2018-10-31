@@ -6,16 +6,11 @@ import LoadingOverlay from './LoadingOverlay';
 import BottomBar from './BottomBar';
 
 class ContentFrame extends Component {
-
-  constructor() {
-    super();
-  }
-
   componentWillMount() {
   }
 
   renderLoadingScreen() {
-      if (this.props.loaded == true) {
+      if (this.props.loaded) {
         return null;
       }
       else {
@@ -47,7 +42,7 @@ class ContentFrame extends Component {
 const mapStateToProps = state => {
 
     const loaded = state.loaded;
-    console.log(loaded);
+    //console.log(loaded);
     return { loaded };
 };
 

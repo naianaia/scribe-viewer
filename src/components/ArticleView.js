@@ -6,230 +6,193 @@ import '../App.css';
 import { connect } from 'react-redux';
 import FloatAnchor from 'react-float-anchor';
 import * as actions from '../redux/actions';
-import DocumentBar from './DocumentBar';
-import BottomBar from './BottomBar';
-import ArticleMeta from './ArticleMeta';
 import UserCard from './UserCard';
 import AnnotationCard from './AnnotationCard';
 import { addUrlProps, UrlQueryParamTypes } from 'react-url-query';
 
 const urlPropsQueryConfig = {
-    userId: { type: UrlQueryParamTypes.string, queryParam: 'au' },
-    articleId: { type: UrlQueryParamTypes.string, queryParam: 'ar' },
+  userId: { type: UrlQueryParamTypes.string, queryParam: 'au' },
+  articleId: { type: UrlQueryParamTypes.string, queryParam: 'ar' },
 };
 
 class ArticleView extends Component {
 
-    static propTypes = {
-        // URL props are automatically decoded and passed in based on the config
-        userId: PropTypes.string,
-        articleId: PropTypes.string,
+  static propTypes = {
+    // URL props are automatically decoded and passed in based on the config
+    userId: PropTypes.string,
+    articleId: PropTypes.string,
 
-        // change handlers are automatically generated when given a config.
-        // By default they update that single query parameter and maintain existing
-        // values in the other parameters.
-        onChangeUserId: PropTypes.func,
-        onChangeAuthorId: PropTypes.func,
+    // change handlers are automatically generated when given a config.
+    // By default they update that single query parameter and maintain existing
+    // values in the other parameters.
+    onChangeUserId: PropTypes.func,
+    onChangeAuthorId: PropTypes.func,
+  }
+
+  static defaultProps = {
+    userId: '',
+    articleId: '',
+  }
+
+  constructor () {
+    super();
+    this.state = {
+      annotations: {},
+      annotater: "",
+      annotater_profile: ""
     }
 
-    static defaultProps = {
-        userId: '',
-        articleId: '',
+  }
+
+  //fetch some data from Firebase
+  componentWillMount() {
+    //this.props.dataFetch();
+    const { userId, articleId, onChangeUserId, onChangeAuthorId } = this.props;
+    this.props.setQuery(userId, articleId);
+    this.props.dataFetchStore(userId, articleId);
+    this.props.dataFetchAnnotations(userId, articleId);
+  }
+
+  //toggles state boolean controlling whether to show an annotation card
+  toggleCard(spanId) {
+    if (this.state.annotations[spanId]) {
+      var stateCopy = Object.assign({}, this.state);
+      stateCopy.annotations[spanId] = false;
+      this.setState(stateCopy);
     }
-
-    constructor () {
-        super();
-        this.state = {
-            annotations: {},
-            annotater: "",
-            annotater_profile: ""
-        }
-
+    else {
+      var stateCopy = Object.assign({}, this.state);
+      stateCopy.annotations[spanId] = true;
+      this.setState(stateCopy);
     }
+    //console.log(this.state.annotations[spanId]);
+  }
 
-    //fetch some data from Firebase
-    componentWillMount() {
-
-        //this.props.dataFetch();
-        const { userId, articleId, onChangeUserId, onChangeAuthorId } = this.props;
-        this.props.setQuery(userId, articleId);
-        this.props.dataFetchStore(userId, articleId);
-        this.props.dataFetchAnnotations(userId, articleId);
-        this.setState({ ...this.state, annotater: "Ben Mann", annotater_profile: "https://avatars2.githubusercontent.com/u/1021104?s=400&v=4"});
+  //if no images, show cover
+  showCover() {
+    //console.log(this.props.image);
+    if (_.includes(this.props.html, "img")) {
+      return <img src={this.props.image} className='imageCover'/>;
     }
-
-    //toggles state boolean controlling whether to show an annotation card
-    toggleCard(spanId) {
-        if (this.state.annotations[spanId]) {
-            var stateCopy = Object.assign({}, this.state);
-            stateCopy.annotations[spanId] = false;
-            this.setState(stateCopy);
-        }
-        else {
-            var stateCopy = Object.assign({}, this.state);
-            stateCopy.annotations[spanId] = true;
-            this.setState(stateCopy);
-        }
-        console.log(this.state.annotations[spanId]);
+    else {
+      return <img src={this.props.image} className='imageCover'/>;
     }
+  }
 
-    //no longer needed
-    //creates a dummy card and returns it
-    createCard(spanId) {
-        console.log(spanId);
-        var profile = "https://avatars2.githubusercontent.com/u/1021104?s=400&v=4";
-        var name = "Ben Mann";
-        var content = "However, as already mentioned, you really should avoid mutating the DOM outside React. The whole point is to describe the UI once based on the state and the props of the component. Then change the state or props to rerender the component.";
-        var time = "1 hour ago";
+  render () {
 
-        return (
-            <div className='annotationCard' onClick={this.toggleCard(spanId)}>
-                <div className='annotationProfile'>
-                    <img className='annotationProfile' src={profile} />
-                </div>
-                <div className='annotationContent'>
-                    <div className='annotationAuthor'>
-                        {name}
-                    </div>
-                    <div className='annotationText'>
-                        {content}
-                    </div>
-                    <div className='annotationTime'>
-                        {time}
-                    </div>
-                </div>
-            </div>
-        )
-    }
+    return (
+      <div>
+        <div className='doc_page'>
+          <UserCard profile={this.state.annotater_profile} name={this.state.annotater} />
+          <div>
+            Takeaway: {this.props.takeaway}
+          </div>
+          <div>
+            {Parser(this.props.html, {
+               replace: (domNode) => {
+                 if (domNode.name === 'span') {
+                   if(domNode.attribs.class === 'text-annotation') {
+                     //extract span content and metadata from highlight
+                     //console.log(domNode);
+                     var spanClass = domNode.attribs.class;
+                     var spanId = domNode.attribs['data-id'];
+                     var spanCount = domNode.attribs['data-spancount'];
+                     var spanTotal = domNode.attribs['data-spantotal'];
+                     //console.log(spanCount);
+                     //console.log(spanTotal);
+                     var spanContent = domNode.children[0].data;
+                     //shows the highlight and annotation card, depending on state boolean
+                     if (this.state.annotations[spanId] && spanCount === spanTotal) {
+                       return (
+                         <>
+                         <FloatAnchor
+                           options={{
+                             position:'right',
+                             vAlign:'top',
+                             hAlign: 'left',
+                             forcePosition: true,
+                             forceHAlign: true,
+                             forceVAlign: true,
+                             leftBuffer:48}}s
+                           anchor={
+                             <div className="testBox"></div>
+                           }
+                           float={
+                             <div className="annotationDesktop">
+                               <AnnotationCard spanId={spanId}
+                                               closeFunc={this.toggleCard.bind(this, spanId)}
+                               />
+                             </div>
+                           }
 
-    //if no images, show cover
-    showCover() {
-        console.log(this.props.image);
-        if (_.includes(this.props.html, "img")) {
-            return <img src={this.props.image} className='imageCover'/>;
-        }
-        else {
-            return <img src={this.props.image} className='imageCover'/>;
-        }
-    }
-
-    render () {
-
-        return (
-            <div>
-                <div className='doc_page'>
-                    <UserCard profile={this.state.annotater_profile} name={this.state.annotater} />
-
-                    <div>
-                        {Parser(this.props.html, {
-                            replace: (domNode) => {
-                                if (domNode.name === 'span') {
-                                    if(domNode.attribs.class === 'text-annotation') {
-                                        //extract span content and metadata from highlight
-                                        console.log(domNode);
-                                        var spanClass = domNode.attribs.class;
-                                        var spanId = domNode.attribs['data-id'];
-                                        var spanCount = domNode.attribs['data-spancount'];
-                                        var spanTotal = domNode.attribs['data-spantotal'];
-                                        console.log(spanCount);
-                                        console.log(spanTotal);
-                                        var spanContent = domNode.children[0].data;
-                                        //shows the highlight and annotation card, depending on state boolean
-                                        if (this.state.annotations[spanId] && spanCount == spanTotal) {
-                                            return (
-                                                <>
-                                                    <FloatAnchor
-                                                        options={{
-                                                            position:'right',
-                                                            vAlign:'top',
-                                                            hAlign: 'left',
-                                                            forcePosition: true,
-                                                            forceHAlign: true,
-                                                            forceVAlign: true,
-                                                            leftBuffer:48}}s
-                                                        anchor={
-                                                            <div className="testBox"></div>
-                                                        }
-                                                        float={
-                                                            <div className="annotationDesktop">
-                                                                <AnnotationCard
-                                                                    profile="https://avatars2.githubusercontent.com/u/1021104?s=400&v=4"
-                                                                    name="anonymous"
-                                                                    time="1 hour ago"
-                                                                    spanId={spanId}
-                                                                    closeFunc={this.toggleCard.bind(this, spanId)}
-                                                                />
-                                                            </div>
-                                                        }
-
-                                                    />
-                                                    <span className={spanClass + ((this.props.hoverId === spanId) ? ' text-annotation-hover' : '')} id={spanId} onClick={this.toggleCard.bind(this, spanId) }>{spanContent}</span>
-                                                    <div className="annotationMobile">
-                                                        <AnnotationCard
-                                                            profile="https://avatars2.githubusercontent.com/u/1021104?s=400&v=4"
-                                                            name="anonymous"
-                                                            time="1 hour ago"
-                                                            spanId={spanId}
-                                                            closeFunc={this.toggleCard.bind(this, spanId)}
-                                                        />
-                                                    </div>
-                                                </>
-                                            )
-                                        }
-                                        else {
-                                            return <span className={spanClass} id={spanId} onClick={this.toggleCard.bind(this, spanId) }>{spanContent}</span>
-                                        }
-                                    }
-                                }
-                                else if (domNode.name === 'style') {
-                                    if (domNode.attribs.class === 'scribe-inject') {
-                                        return <span />;
-                                    }
-                                }
-                            }
-                        })}
-                    </div>
-                </div>
-            </div>
-        )
-    }
+                         />
+                         <span className={spanClass + ((this.props.hoverId === spanId) ? ' text-annotation-hover' : '')} id={spanId} onClick={this.toggleCard.bind(this, spanId) }>{spanContent}</span>
+                         <div className="annotationMobile">
+                           <AnnotationCard
+                             spanId={spanId}
+                             closeFunc={this.toggleCard.bind(this, spanId)}
+                           />
+                         </div>
+                         </>
+                       )
+                     }
+                     else {
+                       return <span className={spanClass} id={spanId} onClick={this.toggleCard.bind(this, spanId) }>{spanContent}</span>
+                     }
+                   }
+                 }
+                 else if (domNode.name === 'style') {
+                   if (domNode.attribs.class === 'scribe-inject') {
+                     return <span />;
+                   }
+                 }
+               }
+            })}
+          </div>
+        </div>
+      </div>
+    )
+  }
 }
 
 const mapStateToProps = state => {
-    var author = '';
-    var image = '';
-    var html = '';
-    var title = '';
-    var url = '';
-    var date = '';
+  var author = '';
+  var image = '';
+  var html = '';
+  var title = '';
+  var url = '';
+  var date = '';
+  var takeaway = '';
 
 
-    //const userData = state.pageData[state.queryData.uid];
-    //console.log(state.pageData);
-    if (state.pageData.page) {
-        //const { [state.queryData.uid]: userData } = state.pageData;
-        //console.log(userData);
-        //const { [state.queryData.aid]: articleData } = userData.items;
-        //console.log(articleData);
+  //const userData = state.pageData[state.queryData.uid];
+  //console.log(state.pageData);
+  if (state.pageData.page) {
+    //const { [state.queryData.uid]: userData } = state.pageData;
+    //console.log(userData);
+    //const { [state.queryData.aid]: articleData } = userData.items;
+    //console.log(articleData);
 
-        const articleData = state.pageData.page;
+    const articleData = state.pageData.page;
 
-        html = articleData.article.content;
-        title = articleData.article.title;
-        image = articleData.article.image;
-        url = (new URL(articleData.url)).hostname;
-        author = articleData.article.byline;
+    html = articleData.article.content;
+    title = articleData.article.title;
+    image = articleData.article.image;
+    url = (new URL(articleData.url)).hostname;
+    author = articleData.article.byline;
+    takeaway = articleData.takeaway;
 
 
-        var res = new Date();
-        date = res.toString().substring(4, 15);
+    var res = new Date();
+    date = res.toString().substring(4, 15);
 
-    }
+  }
 
-    const hoverId = state.hoverId;
+  const hoverId = state.hoverId;
 
-    //console.log(html);
-    return { html, title, url, date, image, author, hoverId }
+  //console.log(html);
+  return { html, title, url, date, image, author, hoverId, takeaway}
 };
 
 export default addUrlProps({ urlPropsQueryConfig })(connect(mapStateToProps, actions)(ArticleView));
