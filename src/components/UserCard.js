@@ -20,17 +20,17 @@ class UserCard extends Component {
 
     render() {
         return (
-            <div class='user_card_holder'>
-                <div class='user_profile'>
-                    <img class='user_profile_pic' src={this.props.userAvatar} />
+            <div className='user_card_holder'>
+                <div className='user_profile'>
+                    <img className='user_profile_pic' src={this.props.userAvatar} />
                 </div>
-                <div class='user_card_text'>
-                    <p class='user_card_text_top'><span class='text-annotation'>Annotated</span> by</p>
-                    <p class='user_card_text_bottom'><b>{this.props.userName}</b></p>
+                <div className='user_card_text'>
+                    <p className='user_card_text_top'><span className='text-annotation'>Annotated</span> by</p>
+                    <p className='user_card_text_bottom'><b>{this.props.userName}</b></p>
                 </div>
 
-                <div class='doc_bar_download'>
-                    <p class='text-download'>GET SCRIBE ></p>
+                <div className='doc_bar_download'>
+                    <p className='text-download'>GET SCRIBE ></p>
                 </div>
             </div>
         )

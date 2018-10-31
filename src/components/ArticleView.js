@@ -24,7 +24,7 @@ class ArticleView extends Component {
         // URL props are automatically decoded and passed in based on the config
         userId: PropTypes.string,
         articleId: PropTypes.string,
-    
+
         // change handlers are automatically generated when given a config.
         // By default they update that single query parameter and maintain existing
         // values in the other parameters.
@@ -83,18 +83,18 @@ class ArticleView extends Component {
         var time = "1 hour ago";
 
         return (
-            <div class='annotationCard' onClick={this.toggleCard(spanId)}>
-                <div class='annotationProfile'>
-                    <img class='annotationProfile' src={profile} />
+            <div className='annotationCard' onClick={this.toggleCard(spanId)}>
+                <div className='annotationProfile'>
+                    <img className='annotationProfile' src={profile} />
                 </div>
-                <div class='annotationContent'>
-                    <div class='annotationAuthor'>
+                <div className='annotationContent'>
+                    <div className='annotationAuthor'>
                         {name}
                     </div>
-                    <div class='annotationText'>
+                    <div className='annotationText'>
                         {content}
                     </div>
-                    <div class='annotationTime'>
+                    <div className='annotationTime'>
                         {time}
                     </div>
                 </div>
@@ -106,10 +106,10 @@ class ArticleView extends Component {
     showCover() {
         console.log(this.props.image);
         if (_.includes(this.props.html, "img")) {
-            return <img src={this.props.image} class='imageCover'/>;
+            return <img src={this.props.image} className='imageCover'/>;
         }
         else {
-            return <img src={this.props.image} class='imageCover'/>;
+            return <img src={this.props.image} className='imageCover'/>;
         }
     }
 
@@ -117,7 +117,7 @@ class ArticleView extends Component {
 
         return (
             <div>
-                <div class='doc_page'>
+                <div className='doc_page'>
                     <UserCard profile={this.state.annotater_profile} name={this.state.annotater} />
 
                     <div>
@@ -134,16 +134,16 @@ class ArticleView extends Component {
                                         console.log(spanCount);
                                         console.log(spanTotal);
                                         var spanContent = domNode.children[0].data;
-                                        //shows the highlight and annotation card, depending on state boolean 
+                                        //shows the highlight and annotation card, depending on state boolean
                                         if (this.state.annotations[spanId] && spanCount == spanTotal) {
                                             return (
                                                 <>
                                                     <FloatAnchor
                                                         options={{
-                                                            position:'right', 
-                                                            vAlign:'top', 
-                                                            hAlign: 'left', 
-                                                            forcePosition: true, 
+                                                            position:'right',
+                                                            vAlign:'top',
+                                                            hAlign: 'left',
+                                                            forcePosition: true,
                                                             forceHAlign: true,
                                                             forceVAlign: true,
                                                             leftBuffer:48}}s
@@ -152,7 +152,7 @@ class ArticleView extends Component {
                                                         }
                                                         float={
                                                             <div className="annotationDesktop">
-                                                                <AnnotationCard 
+                                                                <AnnotationCard
                                                                     profile="https://avatars2.githubusercontent.com/u/1021104?s=400&v=4"
                                                                     name="anonymous"
                                                                     time="1 hour ago"
@@ -161,11 +161,11 @@ class ArticleView extends Component {
                                                                 />
                                                             </div>
                                                         }
-                                                        
+
                                                     />
-                                                    <span class={spanClass + ((this.props.hoverId === spanId) ? ' text-annotation-hover' : '')} id={spanId} onClick={this.toggleCard.bind(this, spanId) }>{spanContent}</span>
+                                                    <span className={spanClass + ((this.props.hoverId === spanId) ? ' text-annotation-hover' : '')} id={spanId} onClick={this.toggleCard.bind(this, spanId) }>{spanContent}</span>
                                                     <div className="annotationMobile">
-                                                        <AnnotationCard 
+                                                        <AnnotationCard
                                                             profile="https://avatars2.githubusercontent.com/u/1021104?s=400&v=4"
                                                             name="anonymous"
                                                             time="1 hour ago"
@@ -177,8 +177,8 @@ class ArticleView extends Component {
                                             )
                                         }
                                         else {
-                                            return <span class={spanClass} id={spanId} onClick={this.toggleCard.bind(this, spanId) }>{spanContent}</span>
-                                        }   
+                                            return <span className={spanClass} id={spanId} onClick={this.toggleCard.bind(this, spanId) }>{spanContent}</span>
+                                        }
                                     }
                                 }
                                 else if (domNode.name === 'style') {
@@ -211,7 +211,7 @@ const mapStateToProps = state => {
         //console.log(userData);
         //const { [state.queryData.aid]: articleData } = userData.items;
         //console.log(articleData);
-        
+
         const articleData = state.pageData.page;
 
         html = articleData.article.content;

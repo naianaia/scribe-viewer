@@ -15,40 +15,48 @@ export const dataFetch = () => {
 };
 
 export const dataFetchStore = (userId, articleId) => {
-    console.log("store fetch start");
-    return (dispatch) => {
-        dispatch({ type: 'loading_data', payload: null });
-        var db = firebase.firestore();
-        db.collection("users").doc(userId).onSnapshot((snapshotUser) => {
-            if (snapshotUser.data()) {
-                db.collection("users").doc(userId).collection("items").doc(articleId).onSnapshot((snapshot) => {
-                    if (snapshot.data()) {
-                        dispatch({ type: 'get_data', payload: { 
-                            page: snapshot.data(), 
-                            userName: snapshotUser.data().name, 
-                            userAvatar: snapshotUser.data().avatar 
-                        } });
-                        dispatch({ type: 'loaded_data', payload: null });
-                    }
-                });
-            }
-        });
+  console.log("store fetch start");
+  return (dispatch) => {
+    dispatch({ type: 'loading_data', payload: null });
+    if (!userId || !articleId) {
+      dispatch({ type: 'loaded_data', payload: null });
+      return;
     }
+    var db = firebase.firestore();
+    db.collection("users").doc(userId).onSnapshot((snapshotUser) => {
+      if (snapshotUser.data()) {
+        db.collection("users").doc(userId).collection("items").doc(articleId).onSnapshot((snapshot) => {
+          if (snapshot.data()) {
+            dispatch({ type: 'get_data', payload: {
+              page: snapshot.data(),
+              userName: snapshotUser.data().name,
+              userAvatar: snapshotUser.data().avatar
+            } });
+            dispatch({ type: 'loaded_data', payload: null });
+          }
+        });
+      }
+    });
+  }
 };
 
 export const dataFetchAnnotations = (userId, articleId) => {
-    console.log("annotation fetch start");
-    return (dispatch) => {
-        var db = firebase.firestore();
-        db.collection("users").doc(userId).collection("items").doc(articleId).collection("annotations").onSnapshot((snapshot) => {
-            var annotationList = {};
-            snapshot.forEach((doc) => {
-                annotationList[doc.id] = doc.data();
-            });
-            console.log(annotationList);
-            dispatch({ type: 'get_annotations', payload: annotationList });
-        });
+  console.log("annotation fetch start");
+  return (dispatch) => {
+    if (!userId || !articleId) {
+      dispatch({ type: 'get_annotations', payload: {} });
+      return;
     }
+    var db = firebase.firestore();
+    db.collection("users").doc(userId).collection("items").doc(articleId).collection("annotations").onSnapshot((snapshot) => {
+      var annotationList = {};
+      snapshot.forEach((doc) => {
+        annotationList[doc.id] = doc.data();
+      });
+      console.log(annotationList);
+      dispatch({ type: 'get_annotations', payload: annotationList });
+    });
+  }
 };
 
 
@@ -65,14 +73,14 @@ export const setHover = (id) => {
         type: 'set_hover',
         payload: id
     }
-} 
+}
 
 export const resetHover = () => {
     return {
         type: 'reset_hover',
         payload: {}
     }
-} 
+}
 
 
 export const getAnnotator = (authorId) => {

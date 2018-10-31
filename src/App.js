@@ -25,14 +25,22 @@ constructor() {
         messagingSenderId: "464252124849"
     };
     if (!firebase.apps.length) {
-         firebase.initializeApp(config);
+      firebase.initializeApp(config);
+      const firestore = firebase.firestore();
+      const settings = {/* your settings... */ timestampsInSnapshots: true};
+      firestore.settings(settings);
+
+      firestore.enablePersistence()
+               .catch(function(err) {
+                 console.error('Failed to enable firestore persistence', err);
+               });
     }
     document.title = 'scribe viewer'
   }
 
   render() {
     return (
-      <div class="marginControl">
+      <div className="marginControl">
         <Provider store={createStore(reducers, {}, applyMiddleware(ReduxThunk))}>
             <ContentFrame />
         </Provider>
