@@ -85,14 +85,12 @@ class ArticleView extends Component {
         <h1>Please specify an author and article in the URL</h1>
       )
     }
-
+    var takeaway = this.props.takeaway ? (<div>Takeaway: {this.props.takeaway}</div>) : null;
     return (
       <div>
         <div className='doc_page'>
           <UserCard profile={this.state.annotater_profile} name={this.state.annotater} />
-          <div>
-            Takeaway: {this.props.takeaway}
-          </div>
+          {takeaway}
           <div>
             {Parser(this.props.html, {
                replace: (domNode) => {
