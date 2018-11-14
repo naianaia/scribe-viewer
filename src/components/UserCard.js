@@ -29,8 +29,10 @@ class UserCard extends Component {
                     <p className='user_card_text_bottom'><b>{this.props.userName}</b></p>
                 </div>
 
-                <div className='doc_bar_download'>
-                    <p className='text-download'>GET SCRIBE ></p>
+                <div className='doc_bar_download' onClick={() => {
+                        window.open('https://play.google.com/store/apps/details?id=io.getscribe.android&referrer=viewer', '_blank')
+                }}>
+                    <p className='text-download'>GET SCRIBE &gt;</p>
                 </div>
             </div>
         )
